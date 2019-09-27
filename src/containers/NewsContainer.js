@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import TopStory from '../components/TopStory.js';
+import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
-import NewsItem from '../components/NewsItem.js';
+
 
 
 class NewsContainer extends Component {
@@ -13,8 +14,9 @@ class NewsContainer extends Component {
 
       articles: [],
       currentArticle: null,
-
+      category: null,
     };
+    this.filterArray = this.filterArray.bind(this);
   };
 
   componentDidMount() {
@@ -27,13 +29,18 @@ class NewsContainer extends Component {
   }
 
 
-
+  filterArray(value) {
+    this.setState({
+      category: value
+    });
+  }
 
 
   render() {
      return(
        <>
          <h1>The News</h1>
+         <Category filterArray={this.filterArray} />
          <TopStory />
          <NewsList  articles={this.state.articles}/>
        </>
