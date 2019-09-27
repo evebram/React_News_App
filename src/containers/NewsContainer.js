@@ -5,6 +5,7 @@ import NewsList from '../components/NewsList.js';
 
 
 
+
 class NewsContainer extends Component {
 
   constructor(props) {
