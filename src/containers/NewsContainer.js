@@ -3,9 +3,6 @@ import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
 
-
-
-
 class NewsContainer extends Component {
 
   constructor(props) {
@@ -22,27 +19,13 @@ class NewsContainer extends Component {
   };
 
   componentDidMount() {
-    const url = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=44c6ad3bc0c34ee4b0a016ff6ab95cca";
+    const url = "http://localhost:8080/articles";
 
     fetch(url)
     .then(res => res.json())
-    .then(articles => this.setState({articles: articles.articles}))
+    .then(articles => this.setState({articles: articles._embedded.articles}))
     .catch(err => console.error);
-
   }
-
-  // componentDidMount() {
-  //   this.loadArticles(this.articles)
-  // }
-  //
-  // loadArticles() {
-  //   const url = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=44c6ad3bc0c34ee4b0a016ff6ab95cca";
-  //
-  //   fetch(url)
-  //   .then(res => res.json())
-  //   .then(articles => this.setState({articles: articles.articles}))
-  //   .catch(err => console.error);
-  // }
 
   setfilteredArray() {
     this.setState({filteredArticles: this.state.articles})
@@ -57,14 +40,6 @@ class NewsContainer extends Component {
       })
       this.setState({filteredArticles: articlesByCategory})
   }
-
-  // displayArticles() {
-  //   articlesToDisplay = []
-  //   if(!category = null) {
-  //     this.setState({articlesToDisplay: this.state.filteredArticles})
-  //   }
-  //     this.setState({articlesToDisplay: this.state.articles})
-  // }
 
   render() {
      return(

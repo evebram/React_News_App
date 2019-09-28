@@ -5,7 +5,7 @@ import NewsItem from './NewsItem.js';
 const NewsList = (props) => {
 
 
-  const articleNodes = props.filteredArticles.map((article, index) => {
+  const articleNodes = props.articles.map((article, index) => {
     return (
       <NewsItem key={index} article={article}></NewsItem>
     )
