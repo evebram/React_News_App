@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
-import Router from '../components/Main.js'
+import Main from '../components/Main.js'
 
 class NewsContainer extends Component {
 
@@ -46,7 +46,7 @@ class NewsContainer extends Component {
      return(
        <>
          <h1>The News</h1>
-         <Router />
+         <Main />
          <Category filterArray={this.filterArray} />
          <TopStory />
          <NewsList  filteredArticles={this.state.filteredArticles} articles={this.state.articles} />

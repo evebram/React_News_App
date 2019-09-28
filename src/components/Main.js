@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NewsList from './NewsList.js'
 import NavBar from './NavBar.js';
+import Home from './Home.js';
 import NewArticleForm from './NewArticleForm.js';
 import NewJournalistForm from './NewJournalistForm.js';
 
@@ -17,7 +18,7 @@ class Main extends Component {
        <React.Fragment>
          <NavBar />
            <Switch>
-
+             <Route exact path="/" component={Home} />
              <Route path="/article" component={NewArticleForm} />
              <Route path="/journalist" component={NewJournalistForm} />
            </Switch>
