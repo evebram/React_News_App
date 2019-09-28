@@ -10,6 +10,7 @@ const Category = ({filterArray}) => {
 
   return (
     <>
+      <button value="a" onClick={handleClick}>All</button>
       <button value="BBC News" onClick={handleClick}>Sport</button>
       <button value="Daily Mail" onClick={handleClick}>Politics</button>
       <button value="Mirror" onClick={handleClick}>Business</button>
