@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
+import NavBar from '../components/NavBar.js';
+import NewArticleForm from '../components/NewArticleForm.js';
+import NewJournalistForm from '../components/NewJournalistForm.js';
 
 class NewsContainer extends Component {
 
