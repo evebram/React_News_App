@@ -12,12 +12,13 @@ class NewsContainer extends Component {
     super(props);
 
     this.state = {
-
       articles: [],
+      filteredArticles: [],
       currentArticle: null,
       category: null,
     };
     this.filterArray = this.filterArray.bind(this);
+    this.setfilteredArray = this.setfilteredArray.bind(this);
   };
 
   componentDidMount() {
@@ -27,15 +28,43 @@ class NewsContainer extends Component {
     .then(res => res.json())
     .then(articles => this.setState({articles: articles.articles}))
     .catch(err => console.error);
+
   }
 
+  // componentDidMount() {
+  //   this.loadArticles(this.articles)
+  // }
+  //
+  // loadArticles() {
+  //   const url = "https://newsapi.org/v2/top-headlines?country=gb&apiKey=44c6ad3bc0c34ee4b0a016ff6ab95cca";
+  //
+  //   fetch(url)
+  //   .then(res => res.json())
+  //   .then(articles => this.setState({articles: articles.articles}))
+  //   .catch(err => console.error);
+  // }
+
+  setfilteredArray() {
+    this.setState({filteredArticles: this.state.articles})
+  }
 
   filterArray(value) {
-    this.setState({
-      category: value
-    });
+      this.setState({category: value})
+      var articlesByCategory = this.state.articles.filter(function (el) {
+        if(el.source.name.includes(value)) {
+          return el;
+        }
+      })
+      this.setState({filteredArticles: articlesByCategory})
   }
 
+  // displayArticles() {
+  //   articlesToDisplay = []
+  //   if(!category = null) {
+  //     this.setState({articlesToDisplay: this.state.filteredArticles})
+  //   }
+  //     this.setState({articlesToDisplay: this.state.articles})
+  // }
 
   render() {
      return(
@@ -43,7 +72,7 @@ class NewsContainer extends Component {
          <h1>The News</h1>
          <Category filterArray={this.filterArray} />
          <TopStory />
-         <NewsList  articles={this.state.articles}/>
+         <NewsList  filteredArticles={this.state.filteredArticles} articles={this.state.articles} />
        </>
      )
   }
