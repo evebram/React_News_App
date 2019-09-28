@@ -1,4 +1,4 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 
 class NewArticleForm extends Component {
   constructor(props) {
@@ -97,3 +97,5 @@ class NewArticleForm extends Component {
   }
 
 }
+
+export default NewArticleForm;

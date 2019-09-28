@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
-import NavBar from '../components/NavBar.js';
-import NewArticleForm from '../components/NewArticleForm.js';
-import NewJournalistForm from '../components/NewJournalistForm.js';
+import Router from '../components/Main.js'
 
 class NewsContainer extends Component {
 
@@ -48,12 +46,14 @@ class NewsContainer extends Component {
      return(
        <>
          <h1>The News</h1>
+         <Router />
          <Category filterArray={this.filterArray} />
          <TopStory />
          <NewsList  filteredArticles={this.state.filteredArticles} articles={this.state.articles} />
        </>
      )
   }
+
 }
 
 export default NewsContainer;
