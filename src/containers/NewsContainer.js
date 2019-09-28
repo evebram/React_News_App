@@ -28,17 +28,16 @@ class NewsContainer extends Component {
     .catch(err => console.error);
   }
 
-
   filterArray(value) {
     this.setState({category: value})
-      const articlesByCategory = this.state.articles.filter(this.checkCategory)
+      var articlesByCategory = this.state.articles.filter(function (el) {
+        if(el.source.name.includes(value)) {
+          return el;
+        }
+
+      })
       this.setState({articles: articlesByCategory})
   }
-
-  checkCategory(category) {
-    return category.source.name = this.state.category;
-  }
-
 
   render() {
      return(
