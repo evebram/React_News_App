@@ -49,7 +49,8 @@ class NewArticleForm extends Component {
       journalist: '',
       summary: '',
       content: '',
-      category: ['']
+      category: ''
+      // category: ['']
     });
   }
 
