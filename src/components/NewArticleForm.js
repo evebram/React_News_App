@@ -38,7 +38,18 @@ class NewArticleForm extends Component {
     event.preventDefault();
     const newArticle = {
       title: this.state.title,
+      summary: this.state.summary,
       content: this.state.content,
-    }
+      journalist: this.state.journalist,
+      category: this.state.category
+    };
+    this.props.handleContentSubmission(newArticle);
+    this.setState({
+      title: '',
+      summary: '',
+      content: '',
+      journalist: '',
+      category: ['']
+    });
   }
 }
