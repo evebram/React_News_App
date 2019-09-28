@@ -64,12 +64,12 @@ class NewArticleForm extends Component {
           onChange={this.handleTitleChange}
         />
         <label htmlFor="journalist">Author: </label>
-        <input
-          id="journalist"
-          type="text"
-          value={this.state.journalist}
-          onChange={this.handleJournalistChange}
-        />
+        <select>
+        <option value="journalist1">Ben</option>
+        <option value="journalist2">Eve</option>
+        <option value="journalist3">Daniela</option>
+        <option value="journalist4">Graeme</option>
+        </select>
         <label htmlFor="summary">Summary: </label>
         <input
           id="summary"
@@ -83,6 +83,13 @@ class NewArticleForm extends Component {
           type="text"
           value={this.state.content}
           onChange={this.handleContentSubmission}
+        />
+        <label htmlFor="category">Category: </label>
+        <input
+          id="category"
+          type="text"
+          value={this.state.category}
+          onChange={this.handleCategoryChange}
         />
       </form>
     )
