@@ -12,7 +12,6 @@ class NewsContainer extends Component {
     super(props);
 
     this.state = {
-
       articles: [],
       currentArticle: null,
       category: null,
@@ -31,9 +30,13 @@ class NewsContainer extends Component {
 
 
   filterArray(value) {
-    this.setState({
-      category: value
-    });
+    this.setState({category: value})
+      const articlesByCategory = this.state.articles.filter(this.checkCategory)
+      this.setState({articles: articlesByCategory})
+  }
+
+  checkCategory(category) {
+    return category.source.name = this.state.category;
   }
 
 
