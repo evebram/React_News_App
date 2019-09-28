@@ -52,4 +52,19 @@ class NewArticleForm extends Component {
       category: ['']
     });
   }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label htmlFor="title">Title: </label>
+        <input
+          id="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleTitleChange}
+        />
+      </form>
+    )
+  }
+
 }
