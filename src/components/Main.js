@@ -17,7 +17,7 @@ class Main extends Component {
        <React.Fragment>
          <NavBar />
            <Switch>
-             <Route exact path="/" component={NewsList} />
+
              <Route path="/article" component={NewArticleForm} />
              <Route path="/journalist" component={NewJournalistForm} />
            </Switch>
