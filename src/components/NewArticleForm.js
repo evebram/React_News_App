@@ -6,14 +6,14 @@ class NewArticleForm extends Component {
 
     this.state = {
       title: '',
-      content: '',
       summary: '',
+      content: '',
       journalist: '',
       category: ['']
     };
     this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleContentChange = this.handleContentChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
@@ -21,11 +21,11 @@ class NewArticleForm extends Component {
   handleTitleChange(event) {
     this.setState({ title: event.target.value });
   }
-  handleContentChange(event) {
-    this.setState({ content: event.target.value });
-  }
   handleSummaryChange(event) {
     this.setState({ summary: event.target.value });
+  }
+  handleContentChange(event) {
+    this.setState({ content: event.target.value });
   }
   handleJournalistChange(event) {
     this.setState({ journalist: event.target.value });
@@ -38,7 +38,7 @@ class NewArticleForm extends Component {
     event.preventDefault();
     const newArticle = {
       title: this.state.title,
-
+      content: this.state.content,
     }
   }
 }
