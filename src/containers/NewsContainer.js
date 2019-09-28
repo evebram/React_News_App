@@ -13,10 +13,12 @@ class NewsContainer extends Component {
 
     this.state = {
       articles: [],
+      filteredArticles: [],
       currentArticle: null,
       category: null,
     };
     this.filterArray = this.filterArray.bind(this);
+    this.setfilteredArray = this.setfilteredArray.bind(this);
   };
 
   componentDidMount() {
@@ -28,15 +30,18 @@ class NewsContainer extends Component {
     .catch(err => console.error);
   }
 
+  setfilteredArray() {
+    this.setState({filteredArticles: this.state.articles})
+  }
+
   filterArray(value) {
-    this.setState({category: value})
+      this.setState({category: value})
       var articlesByCategory = this.state.articles.filter(function (el) {
         if(el.source.name.includes(value)) {
           return el;
         }
-
       })
-      this.setState({articles: articlesByCategory})
+      this.setState({filteredArticles: articlesByCategory})
   }
 
   render() {
@@ -45,7 +50,7 @@ class NewsContainer extends Component {
          <h1>The News</h1>
          <Category filterArray={this.filterArray} />
          <TopStory />
-         <NewsList  articles={this.state.articles}/>
+         <NewsList  articles={this.state.filteredArticles}/>
        </>
      )
   }
