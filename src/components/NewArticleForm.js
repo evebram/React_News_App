@@ -33,4 +33,12 @@ class NewArticleForm extends Component {
   handleCategoryChange(event) {
     this.setState({ category: event.target.value });
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newArticle = {
+      title: this.state.title,
+
+    }
+  }
 }
