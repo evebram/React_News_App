@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
-import Main from '../components/Main.js'
+import NavBar from '../components/NavBar.js';
+import Home from '../components/Home.js';
+import NewArticleForm from '../components/NewArticleForm.js';
+import NewJournalistForm from '../components/NewJournalistForm.js';
+
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class NewsContainer extends Component {
 
@@ -46,10 +51,23 @@ class NewsContainer extends Component {
      return(
        <>
          <h1>The News</h1>
-         <Main />
          <Category filterArray={this.filterArray} />
-         <TopStory />
-         <NewsList  filteredArticles={this.state.filteredArticles} articles={this.state.articles} />
+         <Router>
+          <React.Fragment>
+            <NavBar />
+              <Switch>
+                <Route
+                exact path="/"
+                render={() => <Home articles={this.state.articles}/>}
+                />
+                <Route path="/article" component={NewArticleForm} />
+                <Route path="/journalist" component={NewJournalistForm} />
+              </Switch>
+          </React.Fragment>
+         </Router>
+
+
+
        </>
      )
   }
@@ -57,37 +75,3 @@ class NewsContainer extends Component {
 }
 
 export default NewsContainer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// article: [
-//   {
-//     id: 1,
-//     category: 'sport',
-//     content: "textextextextextexttextextextextextexttextextextextextexttextextextextextexttextextextextextext",
-//     date: '21/10/2019',
-//     rating: 3,
-//     summary: "textextextextextext",
-//     journalist: "Eve Bramley",
-//   },
-//   {
-//     id: 2,
-//     category: 'buisness',
-//     content: "textextextextextexttextextextextextexttextextextextextexttextextextextextexttextextextextextext",
-//     date: '22/10/2019',
-//     rating: 2,
-//     summary: "textextextextextext",
-//     journalist: "Ben Hutchison",
-//   },
-// ]
