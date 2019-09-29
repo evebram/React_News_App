@@ -85,13 +85,74 @@ class NewArticleForm extends Component {
           value={this.state.content}
           onChange={this.handleContentSubmission}
         />
+
         <label htmlFor="category">Category: </label>
+        <label>
         <input
           id="category"
-          type="text"
-          value={this.state.category}
+          type="radio"
+          value="Politics"
+          checked={true}
           onChange={this.handleCategoryChange}
-        />
+          />
+            Politics
+        </label>
+
+        <label>
+        <input
+          id="category"
+          type="radio"
+          value="Education"
+          checked={true}
+          onChange={this.handleCategoryChange}
+          />
+            Education
+        </label>
+
+        <label>
+        <input
+          id="category"
+          type="radio"
+          value="Health"
+          checked={true}
+          onChange={this.handleCategoryChange}
+          />
+            Health
+        </label>
+
+        <label>
+        <input
+          id="category"
+          type="radio"
+          value="Tech"
+          checked={true}
+          onChange={this.handleCategoryChange}
+          />
+            Tech
+        </label>
+
+        <label>
+        <input
+          id="category"
+          type="radio"
+          value="Science"
+          checked={true}
+          onChange={this.handleCategoryChange}
+          />
+            Science
+        </label>
+
+        <label>
+        <input
+          id="category"
+          type="radio"
+          value="Crime"
+          checked={true}
+          onChange={this.handleCategoryChange}
+          />
+            Crime
+        </label>
+
         <input type="submit" />
       </form>
     )
