@@ -11,6 +11,13 @@ class NewArticleForm extends Component {
       content: '',
       category: ['']
     };
+
+  //   getInitialState: function () {
+  //   return {
+  //     selectedCategory: 'Politics'
+  //   };
+  // },
+
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
@@ -55,6 +62,7 @@ class NewArticleForm extends Component {
   }
 
   render() {
+    const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
     return (
       <form onSubmit={this.handleSubmit}>
       <div>
@@ -94,6 +102,17 @@ class NewArticleForm extends Component {
         />
       </div>
 
+      {levels.map((level, index) =>
+        <label key={index}>
+          {level}
+          <input
+            value={level.toUpperCase()}
+            checked={this.state.skillLevel === level.toUpperCase()}
+            onChange={this.handleSkillLevelChange}
+            type="radio" />
+        </label>
+      )}
+
       <div>
         <label htmlFor="category">Category: </label>
         <label>
@@ -112,7 +131,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Education"
-          checked={false}
+          checked={this.state.selectedCategory === 'Politics'}
           onChange={this.handleCategoryChange}
           />
             Education
@@ -123,7 +142,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Health"
-          checked={false}
+          checked={this.state.selectedCategory === 'Health'}
           onChange={this.handleCategoryChange}
           />
             Health
@@ -134,7 +153,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Tech"
-          checked={false}
+          checked={this.state.selectedCategory === 'Tech'}
           onChange={this.handleCategoryChange}
           />
             Tech
@@ -145,7 +164,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Science"
-          checked={false}
+          checked={this.state.selectedCategory === 'Science'}
           onChange={this.handleCategoryChange}
           />
             Science
@@ -156,7 +175,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Crime"
-          checked={false}
+          checked={this.state.selectedCategory === 'Crime'}
           onChange={this.handleCategoryChange}
           />
             Crime
