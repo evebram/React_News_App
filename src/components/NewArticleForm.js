@@ -37,9 +37,10 @@ class NewArticleForm extends Component {
   handleContentChange(event) {
     this.setState({ content: event.target.value });
   }
-  handleCategoryChange(event) {
-    this.setState({ category: event.target.value });
-  }
+  handleCategoryChange = (event) => {
+  const taggedCategories = event.target.value;
+  this.setState({ taggedCategories });
+};
 
   handleSubmit(event) {
     event.preventDefault();
@@ -102,16 +103,19 @@ class NewArticleForm extends Component {
         />
       </div>
 
-      {levels.map((level, index) =>
-        <label key={index}>
-          {level}
-          <input
-            value={level.toUpperCase()}
-            checked={this.state.skillLevel === level.toUpperCase()}
-            onChange={this.handleSkillLevelChange}
-            type="radio" />
-        </label>
-      )}
+      <div>
+      <label htmlFor="category">Category: </label>
+          {categories.map((category, index) =>
+              <label key={index}>
+                {category}
+                <input
+                value={category.toUpperCase()}
+                checked={this.state.taggedCategories === category.toUpperCase()}
+                onChange={this.handleCategoryChange}
+                type="radio" />
+              </label>
+            )}
+      </div>
 
       <div>
         <label htmlFor="category">Category: </label>
