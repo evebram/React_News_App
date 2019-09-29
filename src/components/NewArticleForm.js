@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class NewArticleForm extends Component {
   constructor(props) {
@@ -65,16 +66,18 @@ class NewArticleForm extends Component {
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
     return (
-      <form onSubmit={this.handleSubmit}>
-      <div>
-        <label htmlFor="title">Title: </label>
-        <input
+      <Form onSubmit={this.handleSubmit}>
+
+      <FormGroup>
+        <Label htmlFor="title">Title: </Label>
+        <Input
           id="title"
           type="text"
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
-      </div>
+      </FormGroup>
+
       <div>
         <label htmlFor="journalist">Author: </label>
         <select>
@@ -84,6 +87,7 @@ class NewArticleForm extends Component {
         <option value="journalist4">Graeme</option>
         </select>
       </div>
+
       <div>
         <label htmlFor="summary">Summary: </label>
         <input
@@ -93,6 +97,12 @@ class NewArticleForm extends Component {
           onChange={this.handleSummaryChange}
         />
       </div>
+
+      <div>
+        <Label for="exampleFile">File</Label>
+        <Input type="file" name="file" id="exampleFile" />
+      </div>
+
       <div>
         <label htmlFor="content">Story: </label>
         <input
@@ -121,7 +131,7 @@ class NewArticleForm extends Component {
         <input type="submit" />
       </div>
 
-      </form>
+      </Form>
     )
   }
 
