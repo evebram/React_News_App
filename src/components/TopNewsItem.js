@@ -1,14 +1,14 @@
 import React from 'react';
-
+import './TopNewsItem.css';
 
 const TopNewsItem = (props) => {
 
 
   return (
-    <>
-      <hr />
-      <h2>{props.article.title}</h2>
-    </>
+    <div className='top-story'>
+      <h2>Top Article</h2>
+      <h2>{props.topArticle[0].title}</h2>
+    </div>
   )
 }
 

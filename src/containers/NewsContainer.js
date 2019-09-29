@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
 import NewsList from '../components/NewsList.js';
 import NavBar from '../components/NavBar.js';
@@ -21,7 +20,7 @@ class NewsContainer extends Component {
       category: null,
     };
     this.filterArray = this.filterArray.bind(this);
-    this.setfilteredArray = this.setfilteredArray.bind(this);
+    this.filterArrayAll = this.filterArrayAll.bind(this);
   };
 
   componentDidMount() {
@@ -33,9 +32,6 @@ class NewsContainer extends Component {
     .catch(err => console.error);
   }
 
-  setfilteredArray() {
-    this.setState({filteredArticles: this.state.articles})
-  }
 
   filterArray(value) {
       this.setState({category: value})
@@ -45,6 +41,11 @@ class NewsContainer extends Component {
         }
       })
       this.setState({filteredArticles: articlesByCategory})
+  }
+
+  filterArrayAll() {
+    var articlesByCategory = this.state.articles
+    this.setState({filteredArticles: articlesByCategory})
   }
 
   render() {

@@ -1,16 +1,20 @@
 import React from 'react';
 
 
-const Category = ({filterArray}) => {
+const Category = ({filterArray, filterArrayAll}) => {
 
 
   const handleClick = ({target: {value}}) => {
     filterArray(value);
   }
 
+  const handleClickAll = () => {
+    filterArrayAll();
+  }
+
   return (
     <>
-      <button value="a" onClick={handleClick}>All</button>
+      <button onClick={handleClickAll}>All Stories</button>
       <button value="BBC News" onClick={handleClick}>Sport</button>
       <button value="Daily Mail" onClick={handleClick}>Politics</button>
       <button value="Mirror" onClick={handleClick}>Business</button>
