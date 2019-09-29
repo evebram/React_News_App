@@ -92,6 +92,7 @@ class NewArticleForm extends Component {
           value={this.state.category}
           onChange={this.handleCategoryChange}
         />
+        <input type="submit" />
       </form>
     )
   }
