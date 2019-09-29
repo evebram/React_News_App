@@ -78,17 +78,17 @@ class NewArticleForm extends Component {
         />
       </FormGroup>
 
-      <div>
-        <label htmlFor="journalist">Author: </label>
+      <FormGroup>
+        <Label htmlFor="journalist">Author: </Label>
         <select>
         <option value="journalist1">Ben</option>
         <option value="journalist2">Eve</option>
         <option value="journalist3">Daniela</option>
         <option value="journalist4">Graeme</option>
         </select>
-      </div>
+      </FormGroup>
 
-      <div>
+      <FormGroup>
         <label htmlFor="summary">Summary: </label>
         <input
           id="summary"
@@ -96,14 +96,14 @@ class NewArticleForm extends Component {
           value={this.state.summary}
           onChange={this.handleSummaryChange}
         />
-      </div>
+      </FormGroup>
 
-      <div>
+      <FormGroup>
         <Label for="exampleFile">File</Label>
         <Input type="file" name="file" id="exampleFile" />
-      </div>
+      </FormGroup>
 
-      <div>
+      <FormGroup>
         <label htmlFor="content">Story: </label>
         <input
           id="content"
@@ -111,9 +111,9 @@ class NewArticleForm extends Component {
           value={this.state.content}
           onChange={this.handleContentSubmission}
         />
-      </div>
+      </FormGroup>
 
-      <div>
+      <FormGroup>
       <label htmlFor="category">Category: </label>
           {categories.map((category, index) =>
               <label key={index}>
@@ -125,11 +125,11 @@ class NewArticleForm extends Component {
                 type="radio" />
               </label>
             )}
-      </div>
+      </FormGroup>
 
-      <div>
+      <FormGroup>
         <input type="submit" />
-      </div>
+      </FormGroup>
 
       </Form>
     )
