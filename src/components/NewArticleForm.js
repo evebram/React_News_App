@@ -109,7 +109,7 @@ class NewArticleForm extends Component {
               <label key={index}>
                 {category}
                 <input
-                value={category.toUpperCase()}
+                value={category}
                 checked={this.state.taggedCategories === category.toUpperCase()}
                 onChange={this.handleCategoryChange}
                 type="radio" />
