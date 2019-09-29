@@ -57,6 +57,7 @@ class NewArticleForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+      <div>
         <label htmlFor="title">Title: </label>
         <input
           id="title"
@@ -64,6 +65,8 @@ class NewArticleForm extends Component {
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
+      </div>
+      <div>
         <label htmlFor="journalist">Author: </label>
         <select>
         <option value="journalist1">Ben</option>
@@ -71,6 +74,8 @@ class NewArticleForm extends Component {
         <option value="journalist3">Daniela</option>
         <option value="journalist4">Graeme</option>
         </select>
+      </div>
+      <div>
         <label htmlFor="summary">Summary: </label>
         <input
           id="summary"
@@ -78,6 +83,8 @@ class NewArticleForm extends Component {
           value={this.state.summary}
           onChange={this.handleSummaryChange}
         />
+      </div>
+      <div>
         <label htmlFor="content">Story: </label>
         <input
           id="content"
@@ -85,7 +92,9 @@ class NewArticleForm extends Component {
           value={this.state.content}
           onChange={this.handleContentSubmission}
         />
+      </div>
 
+      <div>
         <label htmlFor="category">Category: </label>
         <label>
         <input
@@ -152,8 +161,12 @@ class NewArticleForm extends Component {
           />
             Crime
         </label>
+      </div>
 
+      <div>
         <input type="submit" />
+      </div>
+
       </form>
     )
   }
