@@ -92,7 +92,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Politics"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Politics
@@ -103,7 +103,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Education"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Education
@@ -114,7 +114,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Health"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Health
@@ -125,7 +125,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Tech"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Tech
@@ -136,7 +136,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Science"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Science
@@ -147,7 +147,7 @@ class NewArticleForm extends Component {
           id="category"
           type="radio"
           value="Crime"
-          checked={true}
+          checked={false}
           onChange={this.handleCategoryChange}
           />
             Crime
