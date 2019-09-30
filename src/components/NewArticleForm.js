@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 class NewArticleForm extends Component {
   constructor(props) {
@@ -8,19 +11,15 @@ class NewArticleForm extends Component {
     this.state = {
       title: '',
       journalist: '',
+      date: '',
       summary: '',
       content: '',
       category: ['']
     };
 
-  //   getInitialState: function () {
-  //   return {
-  //     selectedCategory: 'Politics'
-  //   };
-  // },
-
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -32,6 +31,9 @@ class NewArticleForm extends Component {
   handleJournalistChange(event) {
     this.setState({ journalist: event.target.value });
   }
+  handleDateChange = date => {
+  const [startDate, setStartDate] = useState(new Date());
+};
   handleSummaryChange(event) {
     this.setState({ summary: event.target.value });
   }
@@ -48,6 +50,7 @@ class NewArticleForm extends Component {
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,
+      date: this.state.date,
       summary: this.state.summary,
       content: this.state.content,
       category: this.state.category
@@ -56,9 +59,10 @@ class NewArticleForm extends Component {
     this.setState({
       title: '',
       journalist: '',
+      date: '',
       summary: '',
       content: '',
-      category: ''
+      category: []
       // category: ['']
     });
   }
@@ -89,6 +93,19 @@ class NewArticleForm extends Component {
       </FormGroup>
 
       <FormGroup>
+      <Label htmlFor="date">Date: </Label>
+      <DatePicker
+      selected={startDate}
+      onChange={date => setStartDate(date)}
+      showTimeSelect
+      timeFormat="HH:mm"
+      timeIntervals={15}
+      timeCaption="time"
+      dateFormat="MMMM d, yyyy h:mm aa"
+    />
+      </FormGroup>
+
+      <FormGroup>
         <label htmlFor="summary">Summary: </label>
         <input
           id="summary"
@@ -99,8 +116,8 @@ class NewArticleForm extends Component {
       </FormGroup>
 
       <FormGroup>
-        <Label for="exampleFile">File</Label>
-        <Input type="file" name="file" id="exampleFile" />
+        <Label for="exampleImage">Image</Label>
+        <Input type="file" name="image" id="exampleImage" />
       </FormGroup>
 
       <FormGroup>
