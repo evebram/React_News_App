@@ -15,9 +15,7 @@ const TopNewsList = (props) => {
     return(
     <>
     <hr />
-
     <TopNewsItem topArticle={filteredArray}></TopNewsItem>
-
   </>
 )
 
