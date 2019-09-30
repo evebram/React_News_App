@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
+import Yup from 'yup';
 
 export class NewArticleForm extends React.Component {
 
@@ -32,16 +33,20 @@ export class NewArticleForm extends React.Component {
           if(!values.title)
              errors.title = "A title is required";
 
-             //check if my values have errors
              return errors;
         }}
         onSubmit={this.handleSubmit}
         render={formProps => {
           return(
             <Form>
+              <div>
+               <label>Title: </label>
                <Field type="text" name="title" placeholder="Your title here"/>
                <ErrorMessage name="title" />
+              </div>
 
+              <div>
+                <label>Author: </label>
                 <Field component="select" name="journalist" placeholder="Choose an author">
                   <option value="Ben">Ben</option>
                   <option value="Eve">Eve</option>
@@ -49,6 +54,13 @@ export class NewArticleForm extends React.Component {
                   <option value="Graeme">Graeme</option>
                 </Field>
                 <ErrorMessage name="journalist" />
+              </div>
+
+              <div>
+               <label>Summary: </label>
+               <Field type="text" name="summary" placeholder="Write a brief summary of your article"/>
+               <ErrorMessage name="summary" />
+              </div>
 
                 <button
                   type="submit"
