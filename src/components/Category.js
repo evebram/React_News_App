@@ -18,7 +18,7 @@ const Category = ({filterArray, filterArrayAll}) => {
       <button value="Sport" onClick={handleClick}>Sport</button>
       <button value="Politics" onClick={handleClick}>Politics</button>
       <button value="Business" onClick={handleClick}>Business</button>
-      <button value="Tech" onClick={handleClick}>Tech</button>
+      <button value="Environment" onClick={handleClick}>Environment</button>
       <button value="Science" onClick={handleClick}>Science</button>
       <button value="Education" onClick={handleClick}>Education</button>
       <button value="Health" onClick={handleClick}>Health</button>
