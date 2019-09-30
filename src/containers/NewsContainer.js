@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Category from '../components/Category.js';
-import NewsList from '../components/NewsList.js';
+
 import NavBar from '../components/NavBar.js';
 import Home from '../components/Home.js';
 import NewArticleForm from '../components/NewArticleForm.js';
@@ -35,18 +35,22 @@ class NewsContainer extends Component {
 
   filterArray(value) {
       this.setState({category: value})
-      var articlesByCategory = this.state.articles.filter(function (el) {
-        if(el.categories.name.includes(value)) {
-          return el;
-        }
+      var articlesByCategory = this.state.articles.filter(function(el) {
+        el.categories.forEach(function(category) {
+          if(category.name.includes(value)) {
+            return el;
+          }
+        })
       })
       this.setState({filteredArticles: articlesByCategory})
   }
+
 
   filterArrayAll() {
     var articlesByCategory = this.state.articles
     this.setState({filteredArticles: articlesByCategory})
   }
+
 
   render() {
      return(
@@ -59,16 +63,13 @@ class NewsContainer extends Component {
               <Switch>
                 <Route
                 exact path="/"
-                render={() => <Home articles={this.state.articles}/>}
+                render={() => <Home articles={this.state.articles} filteredArticles={this.filteredArticles}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
                 <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
           </React.Fragment>
          </Router>
-
-
-
        </>
      )
   }

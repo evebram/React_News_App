@@ -6,7 +6,8 @@ const TopNewsItem = (props) => {
 
   return (
     <div className='top-story'>
-      <h2>{props.topArticle.title}</h2>
+      <h3>{props.topArticle.title}</h3>
+      <h5>{props.topArticle.summary}</h5>
     </div>
   )
 }

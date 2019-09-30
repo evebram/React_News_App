@@ -12,14 +12,13 @@ const TopNewsList = (props) => {
   if (!filteredArray) {
     return null;
   } else {
-    return(
-    <>
-    <hr />
-    <TopNewsItem topArticle={filteredArray}></TopNewsItem>
-  </>
-)
-
-}
+      return(
+      <>
+      <hr />
+      <TopNewsItem topArticle={filteredArray}></TopNewsItem>
+    </>
+    )
+  }
 }
 
 

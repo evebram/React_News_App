@@ -5,7 +5,6 @@ const NewsItem = (props) => {
  return (
    <>
      <hr />
-     <h4>This comes from news item</h4>
      <div className='image-box'>
        <img src={props.article.picUrl} alt={props.article.picUrl} />
      </div>
