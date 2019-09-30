@@ -1,8 +1,10 @@
 import React from 'react';
-import { Formik, FormikProps, Form, Field, ErrorMessage } from 'formik';
+import { Formik, FormikProps, Form, Field, ErrorMessage, FieldArray } from 'formik';
 import Yup from 'yup';
 
 export class NewArticleForm extends React.Component {
+
+
 
   handleSubmit = (values, {
     props = this.props,
@@ -16,6 +18,8 @@ export class NewArticleForm extends React.Component {
 
   render() {
 
+    const categories = ["Politics", "Eduction", "Health", "Tech", "Science", "Crime"];
+
     return(
       <Formik
         initialValues={{
@@ -25,7 +29,7 @@ export class NewArticleForm extends React.Component {
           summary: '',
           image: null,
           content: '',
-          category: []
+          category: ['Politics']
         }}
         validate={(values) => {
           let errors = {};
@@ -57,6 +61,11 @@ export class NewArticleForm extends React.Component {
               </div>
 
               <div>
+              <label>Image: </label>
+               <input name="image" type="file" />
+              </div>
+
+              <div>
                <label>Summary: </label>
                <Field type="text" name="summary" placeholder="Write a brief summary of your article"/>
                <ErrorMessage name="summary" />
@@ -67,6 +76,22 @@ export class NewArticleForm extends React.Component {
                <Field type="text" name="content" placeholder="Main article body"/>
                <ErrorMessage name="content" />
               </div>
+
+              // <div>
+              //   <label>Category: </label>
+              //     <FieldArray name="categorySelect">
+              //       {categories.map((category, index) =>
+              //         <label check key={index}>
+              //         {category}
+              //         <Field
+              //         value={category}
+              //         checked={this.state.taggedCategories === category}
+              //         onChange={this.handleCategoryChange}
+              //         type="checkbox" />{''}
+              //       </label>
+              //     )}
+              //   </FieldArray>
+              // </div>
 
               <div>
                 <button
