@@ -56,14 +56,13 @@ class NewsContainer extends Component {
      return(
        <>
          <h1>The News</h1>
-         <Category filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} />
          <Router>
           <React.Fragment>
             <NavBar />
               <Switch>
                 <Route
                 exact path="/"
-                render={() => <Home articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}/>}
+                render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
               </Switch>
