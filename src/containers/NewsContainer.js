@@ -36,7 +36,7 @@ class NewsContainer extends Component {
   filterArray(value) {
       this.setState({category: value})
       var articlesByCategory = this.state.articles.filter(function (el) {
-        if(el.source.name.includes(value)) {
+        if(el.categories.name.includes(value)) {
           return el;
         }
       })
