@@ -7,7 +7,7 @@ const NewsList = (props) => {
 const articleNodes = () => {
   let filteredNodes;
 
-  if(props.filteredArticles.length === 0) {
+  if(!props.category) {
     filteredNodes = props.articles.map( (article, index) => {
       return (
         <NewsItem key={index} article={article}></NewsItem>
