@@ -23,7 +23,7 @@ export class NewArticleForm extends React.Component {
           journalist: '',
           date: '',
           summary: '',
-          image: '',
+          image: null,
           content: '',
           category: []
         }}
@@ -62,11 +62,19 @@ export class NewArticleForm extends React.Component {
                <ErrorMessage name="summary" />
               </div>
 
+              <div>
+               <label>Content: </label>
+               <Field type="text" name="content" placeholder="Main article body"/>
+               <ErrorMessage name="content" />
+              </div>
+
+              <div>
                 <button
                   type="submit"
                   disabled={formProps.isSubmitting}>
                     Submit Form
                  </button>
+              </div>
               </Form>
            );
         }}
