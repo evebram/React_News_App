@@ -6,7 +6,7 @@ const Home = (props) => {
   return(
   <div>
     <TopNewsList  filteredArticles={props.filteredArticles} articles={props.articles} />
-    <NewsList  filteredArticles={props.filteredArticles} articles={props.articles} />
+    <NewsList  filteredArticles={props.filteredArticles} articles={props.articles} category={props.category} />
   </div>
   )
 };

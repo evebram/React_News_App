@@ -34,11 +34,3 @@ return(
 }
 
 export default NewsList;
-
-
-
-// const articleNodes = props.articles.map((article, index) => {
-//   return (
-//     <NewsItem key={index} article={article}></NewsItem>
-//   )
-// })
