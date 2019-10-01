@@ -1,0 +1,15 @@
+.category-button {
+  overflow: hidden;
+  display: inline;
+  overflow: none;
+  white-space: nowrap;
+}
+
+
+.category-button button {
+  background-color: grey;
+  color: white;
+  width: 100px;
+  margin: 5px;
+
+}

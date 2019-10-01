@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './Category.css';
 
 const Category = ({filterArray, filterArrayAll}) => {
 
@@ -13,7 +13,7 @@ const Category = ({filterArray, filterArrayAll}) => {
   }
 
   return (
-    <>
+    <div className='category-button'>
       <button onClick={handleClickAll}>All Stories</button>
       <button value="Sport" onClick={handleClick}>Sport</button>
       <button value="Politics" onClick={handleClick}>Politics</button>
@@ -24,7 +24,7 @@ const Category = ({filterArray, filterArrayAll}) => {
       <button value="Health" onClick={handleClick}>Health</button>
       <button value="Entertainment" onClick={handleClick}>Entertainment</button>
       <button value="Crime" onClick={handleClick}>Crime</button>
-    </>
+    </div>
   )
 }
 
