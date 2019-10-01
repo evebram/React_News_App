@@ -23,3 +23,16 @@
 .top-story button {
   width: 100%;
 }
+
+.journalist-tag {
+  font-size: 14px;
+  float: right;
+}
+
+.top-story p {
+  font-size: 17px;
+}
+
+.top-story button {
+  font-size: 17px;
+}

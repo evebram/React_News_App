@@ -1,0 +1,11 @@
+body {
+  text-align: left;
+  margin: 10px;
+}
+
+h1 {
+  font-size: 64px;
+  display: inline;
+  text-shadow: 1px 2px 6px #CE5937;
+  font-family: 'Raleway', sans-serif;
+  }
