@@ -32,13 +32,13 @@ class NewsContainer extends Component {
     .catch(err => console.error);
   }
 
-
-  filterArray(value) {
-      this.setState({category: value})
-      var articlesByCategory = this.state.articles.filter(function(el) {
-        el.categories.forEach(function(category) {
-          if(category.name.includes(value)) {
-            return el;
+  filterArray(selectedCategory) {
+      this.setState({category: selectedCategory})
+      const articlesByCategory = []
+       this.state.articles.filter(function(articleObject) {
+        articleObject.categories.forEach(function(category) {
+          if(category.name.includes(selectedCategory)) {
+            articlesByCategory.push(articleObject);
           }
         })
       })
@@ -47,7 +47,7 @@ class NewsContainer extends Component {
 
 
   filterArrayAll() {
-    var articlesByCategory = this.state.articles
+    const articlesByCategory = this.state.articles
     this.setState({filteredArticles: articlesByCategory})
   }
 
@@ -56,17 +56,15 @@ class NewsContainer extends Component {
      return(
        <>
          <h1>The News</h1>
-         <Category filterArray={this.filterArray} />
          <Router>
           <React.Fragment>
             <NavBar />
               <Switch>
                 <Route
                 exact path="/"
-                render={() => <Home articles={this.state.articles} filteredArticles={this.filteredArticles}/>}
+                render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
-                <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
           </React.Fragment>
          </Router>
@@ -77,3 +75,7 @@ class NewsContainer extends Component {
 }
 
 export default NewsContainer;
+
+
+
+// <Route path="/journalist" component={NewJournalistForm} />

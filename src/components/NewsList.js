@@ -3,35 +3,32 @@ import NewsItem from './NewsItem.js';
 
 const NewsList = (props) => {
 
-// const articleNodes = () => {
-//   // if(!props.filteredArticles) {
-//   //   props.articles.map( (article, index) => {
-//   //     return (
-//   //       <NewsItem key={index} article={article}></NewsItem>
-//   //     )
-//   //   })
-//   // }
-//   // else
-//   // {
-//     console.log("original array returned")
-//     props.articles.map( (article, index) => {
-//       return (
-//         <NewsItem key={index} article={article}></NewsItem>
-//       )
-//     })
-//   // }
-// }
 
-  const articleNodes = props.articles.map((article, index) => {
-    return (
-      <NewsItem key={index} article={article}></NewsItem>
-    )
-  })
+const articleNodes = () => {
+  let filteredNodes;
 
+  if(!props.category) {
+    filteredNodes = props.articles.map( (article, index) => {
+      return (
+        <NewsItem key={index} article={article}></NewsItem>
+      )
+    })
+  }
+  else
+  {
+    filteredNodes = props.filteredArticles.map( (article, index) => {
+      return (
+        <NewsItem key={index} article={article}></NewsItem>
+      )
+    })
+  }
+
+  return filteredNodes
+}
 
 return(
     <>
-      {articleNodes}
+      {articleNodes()}
     </>
   )
 }
