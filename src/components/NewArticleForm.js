@@ -101,7 +101,7 @@ class NewArticleForm extends Component {
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
 
-    const { journalists } = this.state;
+
 
     return (
 
@@ -195,7 +195,7 @@ export default NewArticleForm;
 
 
 // <div>
-//   <select>
+//   <select onChange={this.handleJournalistChange}>
 //     {journalists.map((item) =>
 //       <option value={item.firstName}>{item.firstName}
 //       </option>
@@ -203,6 +203,9 @@ export default NewArticleForm;
 //   </select>
 // </div>
 
+
+// const { journalists } = this.state;
+// console.log(journalists)
 
 
 

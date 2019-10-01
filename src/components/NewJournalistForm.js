@@ -23,22 +23,26 @@ class NewJournalistForm extends Component {
     }
 
     handleSubmit(event) {
-      event.preventDefault();
-      axios.put(`http://localhost:8080/journalist`)
-        .then(res => {
-              const persons = res.data;
-              this.setState({ persons });
-            })
+      if (!this.canBeSubmitted()) {
+        event.preventDefault();
+        return;
+      }
       const newJournalist = {
         firstName: this.state.firstName,
-        lastName: this.state.lastName
+        lastName: this.state.lastName,
       };
       console.log(newJournalist)
     }
 
-
+    canBeSubmitted() {
+      const { firstName, lastName } = this.state;
+      return firstName.length > 0 && lastName.length > 0;
+    }
 
   render() {
+    const { firstName, lastName } = this.state;
+    const isEnabled = this.canBeSubmitted();
+
     return (
       <form onSubmit={this.handleSubmit}>
 
@@ -47,6 +51,7 @@ class NewJournalistForm extends Component {
           <input
             id="firstName"
             type="text"
+            placeholder="Enter first name"
             value={this.state.firstName}
             onChange={this.handleFirstNameChange}
           />
@@ -57,13 +62,16 @@ class NewJournalistForm extends Component {
           <input
             id="lastName"
             type="text"
+            placeholder="Enter last name"
             value={this.state.lastName}
             onChange={this.handleLastNameChange}
           />
         </div>
 
         <div>
-          <input type="submit" />
+          <button disabled={!isEnabled} type="submit" >
+            Submit
+          </button>
         </div>
 
       </form>
@@ -74,7 +82,11 @@ class NewJournalistForm extends Component {
 
 export default NewJournalistForm;
 
-
+// axios.put(`http://localhost:8080/journalist`)
+//   .then(res => {
+//         const persons = res.data;
+//         this.setState({ persons });
+//       })
 
 // export default
 
