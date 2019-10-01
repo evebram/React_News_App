@@ -96,12 +96,21 @@ class NewArticleForm extends Component {
     };
     console.log(newArticle)
 
+    canBeSubmitted() {
+    const { title, journalist, summary, image, content, category} = this.state;
+    return title.length > 0
+    && journalist.length > 0
+    && summary.length > 50
+    && image.length > 0
+    && content.length > 200;
+  }
+
   }
 
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
 
-
+    const isEnabled = this.canBeSubmitted();
 
     return (
 
