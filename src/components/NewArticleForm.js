@@ -20,6 +20,7 @@ class NewArticleForm extends Component {
       category: []
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleJournalistChange = this.handleJournalistChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
@@ -55,18 +56,21 @@ class NewArticleForm extends Component {
   }
 
   handleCategoryChange = (event) => {
-  const taggedCategories = event.target.value;
-  this.setState({ taggedCategories });
-  };
+  const { taggedCategories } = event.target.value;
+  this.setState(prevState => ({
+      category: {
+        ...prevState.category,
+        [taggedCategories]: !prevState.category[taggedCategories]
+      }
+    }));
+    };
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8080/articles', this.state)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(error => {
-        console.log(error)
+    axios.post(`http://localhost:8080/articles`, this.state)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
       })
     const newArticle = {
       title: this.state.title,
@@ -157,13 +161,29 @@ class NewArticleForm extends Component {
                 {category}
                 <input
                 value={category}
+                name= 'category[]'
                 checked={this.state.taggedCategories === category}
                 onChange={this.handleCategoryChange}
-                type="checkbox" />{''}
+                type="checkbox"
+                className="form-check-input" />
               </label>
             )}
         </div>
       </div>
+
+
+      <div className="form-check">
+  <label>
+    <input
+      type="checkbox"
+      name={label}
+      checked={isSelected}
+      onChange={onCheckboxChange}
+      className="form-check-input"
+    />
+    {label}
+  </label>
+
 
       <div>
         <input type="submit" />
