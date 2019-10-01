@@ -36,6 +36,19 @@ class NewArticleForm extends Component {
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
 
+  componentDidMount() {
+    const url = "http://localhost:8080/journalists";
+
+    fetch(url)
+    .then(res => res.json())
+    .then(journalists => this.setState({journalists: journalists._embedded.journalists}))
+    .catch(err => console.error);
+  }
+
+  getJournalists(id){
+    const url = `http://localhost:8080/journalists/${id}`
+  }
+
   handleTitleChange(event) {
     this.setState({ title: event.target.value });
   }

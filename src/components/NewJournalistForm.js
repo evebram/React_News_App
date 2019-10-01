@@ -24,7 +24,7 @@ class NewJournalistForm extends Component {
 
     handleSubmit(event) {
       event.preventDefault();
-      axios.put(`http://localhost:8080/articles`)
+      axios.put(`http://localhost:8080/journalist`)
         .then(res => {
               const persons = res.data;
               this.setState({ persons });
