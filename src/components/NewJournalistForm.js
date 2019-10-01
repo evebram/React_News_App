@@ -32,6 +32,7 @@ class NewJournalistForm extends Component {
         lastName: this.state.lastName,
       };
       console.log(newJournalist)
+      alert(`Thank you for registering`);
     }
 
     canBeSubmitted() {

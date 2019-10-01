@@ -84,7 +84,10 @@ class NewArticleForm extends Component {
     };
 
   handleSubmit(event) {
-    event.preventDefault();
+    if (!this.canBeSubmitted()) {
+      event.preventDefault();
+      return;
+    }
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,
@@ -95,17 +98,18 @@ class NewArticleForm extends Component {
       category: this.state.category
     };
     console.log(newArticle)
+    alert(`Thank you for submitting`);
+  }
 
     canBeSubmitted() {
-    const { title, journalist, summary, image, content, category} = this.state;
+    const { title, summary, image, content} = this.state;
     return title.length > 0
-    && journalist.length > 0
     && summary.length > 50
     && image.length > 0
-    && content.length > 200;
+    && content.length > 50;
   }
 
-  }
+
 
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
@@ -190,7 +194,9 @@ class NewArticleForm extends Component {
 
 
       <div>
-        <input type="submit" />
+      <button disabled={!isEnabled} type="submit" >
+        Submit
+      </button>
       </div>
 
       </form>
