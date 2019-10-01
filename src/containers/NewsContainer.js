@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Category from '../components/Category.js';
 
+import Header from '../components/Header.js';
 import NavBar from '../components/NavBar.js';
 import Home from '../components/Home.js';
 import NewArticleForm from '../components/NewArticleForm.js';
@@ -83,7 +84,7 @@ class NewsContainer extends Component {
   render() {
      return(
        <>
-         <h1>The News</h1>
+         <Header />
          <Router>
           <React.Fragment>
             <NavBar />

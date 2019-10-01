@@ -38,3 +38,13 @@
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  margin: 10px;
+}
+
+li {
+  list-style-type: circle;
+}
