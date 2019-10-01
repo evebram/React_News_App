@@ -18,7 +18,7 @@ const articleNodes = () => {
   let filteredNodes;
 
   if(!props.category) {
-    filteredNodes = props.articles.map( (article, index) => {
+    filteredNodes = (allArticlesSorted.slice(1)).map( (article, index) => {
       return (
         <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
       )
@@ -26,7 +26,7 @@ const articleNodes = () => {
   }
   else
   {
-    filteredNodes = props.filteredArticles.map( (article, index) => {
+    filteredNodes = (categoryArticlesSorted.slice(1)).map( (article, index) => {
       return (
         <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
       )
