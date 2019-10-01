@@ -18,7 +18,11 @@ const NewsItem = (props) => {
          <h4>{props.article.summary}</h4>
        </div>
       </div>
-     <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p></Collapsible></button>
+     <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p>
+     <div className='journalist-tag'>
+       <a href="">See more stories by {props.article.journalist.firstName} {props.article.journalist.lastName}...</a>
+     </div>
+     </Collapsible></button>
    </div>
  )
 }
