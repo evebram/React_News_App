@@ -61,6 +61,7 @@ class NewArticleForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    axios.post('http://localhost:8080/articles')
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,
