@@ -1,110 +1,171 @@
-import React from 'react';
-import { Formik, FormikProps, Form, Field, ErrorMessage, FieldArray } from 'formik';
-import Yup from 'yup';
-
-export class NewArticleForm extends React.Component {
-
+import React, { Component } from 'react';
+// import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import DatePicker from "react-datepicker";
+import Axios from 'axios';
 
 
-  handleSubmit = (values, {
-    props = this.props,
-    setSubmitting
-  }) => {
+import "react-datepicker/dist/react-datepicker.css";
 
-    alert(JSON.stringify(values, null, 2));
-    setSubmitting(false);
-    return;
+class NewArticleForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: '',
+      journalist: '',
+      date: new Date,
+      summary: '',
+      image: null,
+      content: '',
+      category: []
+    };
+
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleJournalistChange = this.handleJournalistChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleSummaryChange = this.handleSummaryChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
+    this.handleContentChange = this.handleContentChange.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+  }
+
+  handleTitleChange(event) {
+    this.setState({ title: event.target.value });
+  }
+  handleJournalistChange(event) {
+    this.setState({ journalist: event.target.value });
+  }
+
+  handleDateChange(event) {
+    this.setState({ date: event.target.value });
+  }
+
+  handleDateChange(event) {
+    this.setState({ date: event.target.value });
+  }
+
+  handleSummaryChange(event) {
+    this.setState({ summary: event.target.value });
+  }
+  handleImageChange(event) {
+    this.setState({ image: event.target.value });
+  }
+  handleContentChange(event) {
+    this.setState({ content: event.target.value });
+  }
+
+  handleCategoryChange = (event) => {
+  const taggedCategories = event.target.value;
+  this.setState({ taggedCategories });
+  };
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newArticle = {
+      title: this.state.title,
+      journalist: this.state.journalist,
+      date: this.state.date,
+      summary: this.state.summary,
+      image: this.state.image,
+      content: this.state.content,
+      category: this.state.category
+    };
+    this.props.handleContentSubmission(newArticle);
+    this.setState({
+      title: '',
+      journalist: '',
+      date: '',
+      summary: '',
+      image: '',
+      content: '',
+      category: []
+    });
   }
 
   render() {
+    const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
+    return (
+      <form onSubmit={this.handleSubmit}>
 
-    const categories = ["Politics", "Eduction", "Health", "Tech", "Science", "Crime"];
+      <div>
+        <label htmlFor="title">Title: </label>
+        <input
+          id="title"
+          type="text"
+          value={this.state.title}
+          onChange={this.handleTitleChange}
+        />
+      </div>
 
-    return(
-      <Formik
-        initialValues={{
-          title: '',
-          journalist: '',
-          date: '',
-          summary: '',
-          image: null,
-          content: '',
-          category: ['Politics']
-        }}
-        validate={(values) => {
-          let errors = {};
+      <div>
+        <label htmlFor="journalist">Author: </label>
+        <select>
+        <option value="journalist1">Ben</option>
+        <option value="journalist2">Eve</option>
+        <option value="journalist3">Daniela</option>
+        <option value="journalist4">Graeme</option>
+        </select>
+      </div>
 
-          if(!values.title)
-             errors.title = "A title is required";
+      <div>
+      <label htmlFor="date">Date: </label>
+        <DatePicker
+          selected={this.state.date}
+          onChange={this.handleChange}
+          showTimeSelect
+          dateFormat="Pp"
+        />
+      </div>
 
-             return errors;
-        }}
-        onSubmit={this.handleSubmit}
-        render={formProps => {
-          return(
-            <Form>
-              <div>
-               <label>Title: </label>
-               <Field type="text" name="title" placeholder="Your title here"/>
-               <ErrorMessage name="title" />
-              </div>
+      <div>
+        <label htmlFor="summary">Summary: </label>
+        <input
+          id="summary"
+          type="text"
+          value={this.state.summary}
+          onChange={this.handleSummaryChange}
+        />
+      </div>
 
-              <div>
-                <label>Author: </label>
-                <Field component="select" name="journalist" placeholder="Choose an author">
-                  <option value="Ben">Ben</option>
-                  <option value="Eve">Eve</option>
-                  <option value="Daniela">Daniela</option>
-                  <option value="Graeme">Graeme</option>
-                </Field>
-                <ErrorMessage name="journalist" />
-              </div>
+      <div>
+        <label htmlFor="exampleImage">Image</label>
+        <input type="file" name="image" id="exampleImage" />
+      </div>
 
-              <div>
-              <label>Image: </label>
-               <input name="image" type="file" />
-              </div>
+      <div>
+        <label htmlFor="content">Story: </label>
+        <input
+          id="content"
+          type="text"
+          value={this.state.content}
+          onChange={this.handleContentChange}
+        />
+      </div>
 
-              <div>
-               <label>Summary: </label>
-               <Field type="text" name="summary" placeholder="Write a brief summary of your article"/>
-               <ErrorMessage name="summary" />
-              </div>
+      <div tag="fieldset">
+      <label htmlFor="category">Category: </label>
+        <div check>
+          {categories.map((category, index) =>
+              <label check key={index}>
+                {category}
+                <input
+                value={category}
+                checked={this.state.taggedCategories === category}
+                onChange={this.handleCategoryChange}
+                type="checkbox" />{''}
+              </label>
+            )}
+        </div>
+      </div>
 
-              <div>
-               <label>Content: </label>
-               <Field type="text" name="content" placeholder="Main article body"/>
-               <ErrorMessage name="content" />
-              </div>
+      <div>
+        <input type="submit" />
+      </div>
 
-              // <div>
-              //   <label>Category: </label>
-              //     <FieldArray name="categorySelect">
-              //       {categories.map((category, index) =>
-              //         <label check key={index}>
-              //         {category}
-              //         <Field
-              //         value={category}
-              //         checked={this.state.taggedCategories === category}
-              //         onChange={this.handleCategoryChange}
-              //         type="checkbox" />{''}
-              //       </label>
-              //     )}
-              //   </FieldArray>
-              // </div>
+      </form>
+    )
+  }
 
-              <div>
-                <button
-                  type="submit"
-                  disabled={formProps.isSubmitting}>
-                    Submit Form
-                 </button>
-              </div>
-              </Form>
-           );
-        }}
-     />);
-   }
 }
 
 export default NewArticleForm;
