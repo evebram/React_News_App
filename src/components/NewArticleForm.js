@@ -102,14 +102,13 @@ class NewArticleForm extends Component {
   }
 
     canBeSubmitted() {
-    const { title, summary, image, content} = this.state;
+    const { title, journalist, summary, image, content} = this.state;
     return title.length > 0
+    && journalist.length > 0
     && summary.length > 50
     && image.length > 0
     && content.length > 50;
   }
-
-
 
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
