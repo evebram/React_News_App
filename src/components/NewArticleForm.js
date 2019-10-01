@@ -56,11 +56,11 @@ class NewArticleForm extends Component {
   }
 
   handleCategoryChange = (event) => {
-  const { taggedCategories } = event.target.value;
+  const selectedCategory = event.target.value;
   this.setState(prevState => ({
       category: {
         ...prevState.category,
-        [taggedCategories]: !prevState.category[taggedCategories]
+        [selectedCategory]: !prevState.category[selectedCategory]
       }
     }));
     };
@@ -170,20 +170,6 @@ class NewArticleForm extends Component {
             )}
         </div>
       </div>
-
-
-      <div className="form-check">
-  <label>
-    <input
-      type="checkbox"
-      name={label}
-      checked={isSelected}
-      onChange={onCheckboxChange}
-      className="form-check-input"
-    />
-    {label}
-  </label>
-
 
       <div>
         <input type="submit" />
