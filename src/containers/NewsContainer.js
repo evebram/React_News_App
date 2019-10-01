@@ -80,7 +80,6 @@ class NewsContainer extends Component {
   }
 
 
-
   render() {
      return(
        <>
@@ -94,7 +93,11 @@ class NewsContainer extends Component {
                 render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}
                 updateRating={this.updateRating}/>}
                 />
-                <Route path="/article" component={NewArticleForm} />
+                // <Route path="/article" component={NewArticleForm} />
+                <Route
+                path="/article"
+                render={() => <NewArticleForm jounalistId={this.state.articles.journalist.id}}
+                />
                 <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
           </React.Fragment>
