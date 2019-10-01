@@ -16,7 +16,7 @@ const NewsItem = (props) => {
      </div>
      <h2>{props.article.title}</h2>
      <h4>{props.article.summary}</h4>
-     <button onClick={handleClick}><Collapsible trigger="Full story" ><p>{props.article.content}</p></Collapsible></button>
+     <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p></Collapsible></button>
    </>
  )
 }
