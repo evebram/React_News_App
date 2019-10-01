@@ -1,8 +1,10 @@
-.image-box img {
-  max-width:100px;
-   height:auto;
+.story-list img {
+  max-width: 100px;
+  float: left;
+  height: auto;
+  padding: 15px;
 }
 
-.image-box button {
+.story-list button {
   width: 100%;
 }

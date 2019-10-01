@@ -9,15 +9,17 @@ const NewsItem = (props) => {
   }
 
  return (
-   <>
+   <div className='story-list'>
      <hr />
-     <div className='image-box'>
+     <div className='story-list-objects'>
        <img src={props.article.picUrl} alt={props.article.picUrl} />
-     </div>
-     <h2>{props.article.title}</h2>
-     <h4>{props.article.summary}</h4>
+       <div className='story-list-info'>
+         <h2>{props.article.title}</h2>
+         <h4>{props.article.summary}</h4>
+       </div>
+      </div>
      <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p></Collapsible></button>
-   </>
+   </div>
  )
 }
 export default NewsItem;
