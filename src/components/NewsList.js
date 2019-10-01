@@ -3,6 +3,16 @@ import NewsItem from './NewsItem.js';
 
 const NewsList = (props) => {
 
+  //sorts articles
+    const allArticlesSorted = props.articles.sort(function(a, b) {
+      return b.rating - a.rating
+    });
+
+  //sorts filteredArticles
+    const categoryArticlesSorted = props.filteredArticles.sort(function(a, b) {
+      return b.rating - a.rating
+    });
+
 
 const articleNodes = () => {
   let filteredNodes;
