@@ -14,9 +14,16 @@ class NewArticleForm extends Component {
       journalist: '',
       date: new Date,
       summary: '',
-      image: null,
+      image: '',
       content: '',
-      category: []
+      category: {
+        'Politics': false,
+        'Education': false,
+        'Health': false,
+        'Tech': false,
+        'Science': false,
+        'Crime': false
+      }
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,7 +45,7 @@ class NewArticleForm extends Component {
   handleDateChange(event) {
     this.setState({ date: event.target.value });
   }
-  handleChange = newDate => {
+  handleDateChange = newDate => {
     this.setState({date: newDate  });
   };
   handleSummaryChange(event) {
@@ -52,10 +59,11 @@ class NewArticleForm extends Component {
   }
 
   handleCategoryChange(event) {
-  const { value } = event.target.value;
+  const value = event.target.value;
   this.setState(prevState => ({
       category: {
         ...prevState.category,
+        // [value]: "true"
         [value]: !prevState.category[value]
       }
     }));
@@ -63,11 +71,7 @@ class NewArticleForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post(`http://localhost:8080/articles`, this.state)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
+    console.log();
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,
@@ -77,16 +81,8 @@ class NewArticleForm extends Component {
       content: this.state.content,
       category: this.state.category
     };
-    this.props.handleContentSubmission(newArticle);
-    this.setState({
-      title: '',
-      journalist: '',
-      date: '',
-      summary: '',
-      image: '',
-      content: '',
-      category: []
-    });
+    console.log(newArticle)
+
   }
 
   render() {
@@ -106,7 +102,7 @@ class NewArticleForm extends Component {
 
       <div>
         <label htmlFor="journalist">Author: </label>
-        <select>
+        <select onChange={this.handleJournalistChange}>
         <option value="journalist1">Ben</option>
         <option value="journalist2">Eve</option>
         <option value="journalist3">Daniela</option>
@@ -118,7 +114,7 @@ class NewArticleForm extends Component {
       <label htmlFor="date">Date: </label>
         <DatePicker
           selected={this.state.date}
-          onChange={this.handleChange}
+          onChange={this.handleDateChange}
           showTimeSelect
           dateFormat="Pp"
         />
@@ -136,7 +132,7 @@ class NewArticleForm extends Component {
 
       <div>
         <label htmlFor="exampleImage">Image: </label>
-        <input type="url" name="image" id="exampleImage" />
+        <input type="url" name="image" id="exampleImage" onChange={this.handleImageChange}/>
       </div>
 
       <div>
@@ -151,14 +147,14 @@ class NewArticleForm extends Component {
 
       <div tag="fieldset">
         <label htmlFor="category">Category: </label>
-          <div check>
+          <div>
             {categories.map((category, index) =>
-                <label check key={index} >
+                <label key={index} >
                   {category}
                   <input
                   value={category}
-                  name= 'category[]'
-                  checked={this.state.taggedCategories === category}
+                  name={category}
+                  checked={this.state.category[category]}
                   onChange={this.handleCategoryChange}
                   type="checkbox"
                   />

@@ -47,6 +47,7 @@ class NewsContainer extends Component {
       this.setState({filteredArticles: articlesByCategory})
   }
 
+
   render() {
      return(
        <>
