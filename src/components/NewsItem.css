@@ -2,3 +2,7 @@
   max-width:100px;
    height:auto;
 }
+
+.image-box button {
+  width: 100%;
+}

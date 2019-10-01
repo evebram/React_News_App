@@ -12,8 +12,13 @@ const TopNewsItem = (props) => {
 
   return (
     <div className='top-story'>
-      <h3>{props.topArticle.title}</h3>
-      <h5>{props.topArticle.summary}</h5>
+      <div className='top-story-objects'>
+        <img src={props.topArticle.picUrl} alt={props.topArticle.picUrl} />
+        <div className='top-story-info'>
+          <h4>{props.topArticle.title}</h4>
+          <h6>{props.topArticle.summary}</h6>
+        </div>
+      </div>
        <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.topArticle.content}</p></Collapsible></button>
     </div>
   )
