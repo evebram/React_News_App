@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import DatePicker from "react-datepicker";
-import Axios from 'axios';
+import axios from 'axios';
 
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -61,7 +61,13 @@ class NewArticleForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:8080/articles')
+    axios.post('http://localhost:8080/articles', this.state)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,
