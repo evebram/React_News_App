@@ -4,8 +4,8 @@ import Collapsible from 'react-collapsible';
 const NewsItem = (props) => {
 
   const handleClick = () => {
-    props.article.rating += 1;
-    console.log(props.article.rating);
+    let updatedRating = props.article.rating + 1;
+    props.updateRating(props.article.id, updatedRating)
   }
 
  return (

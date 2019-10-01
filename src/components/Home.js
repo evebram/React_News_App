@@ -8,7 +8,7 @@ const Home = (props) => {
   <div>
     <Category filterArray={props.filterArray} filterArrayAll={props.filterArrayAll} />
     <TopNewsList  filteredArticles={props.filteredArticles} articles={props.articles} />
-    <NewsList  filteredArticles={props.filteredArticles} articles={props.articles} category={props.category} />
+    <NewsList  filteredArticles={props.filteredArticles} articles={props.articles} category={props.category} updateRating={props.updateRating}/>
   </div>
   )
 };
