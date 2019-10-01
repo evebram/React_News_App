@@ -50,6 +50,7 @@ class NewsContainer extends Component {
       this.setState({filteredArticles: articlesByCategory})
   }
 
+//update rating for article popularity
   updateRatingLocal(id, newRating){
     let articlesToModify = [...this.state.articles]
     let index = articlesToModify.findIndex(article => article.id === id)
@@ -69,10 +70,17 @@ class NewsContainer extends Component {
     })
     .then(res => res.json())
     .catch(err => console.error);
-
     this.updateRatingLocal(id, newRating);
-
   }
+
+//create new journalist
+  handleJournalistPost(journalist) {
+    const request = new Request();
+    request.post('/journalists', journalist).then(() => {
+      window.location = '/journalists'
+    })
+  }
+
 
   filterArrayAll() {
     const articlesByCategory = this.state.articles
@@ -95,7 +103,7 @@ class NewsContainer extends Component {
                 updateRating={this.updateRating}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
-                <Route path="/journalist" component={NewJournalistForm} />
+                <Route path="/journalist" component={NewJournalistForm} handleJournalistPost={this.handleJournalistPost}/>
               </Switch>
           </React.Fragment>
          </Router>

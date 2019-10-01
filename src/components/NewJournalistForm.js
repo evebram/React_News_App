@@ -25,10 +25,11 @@ class NewJournalistForm extends Component {
     handleSubmit(event) {
       event.preventDefault();
       const newJournalist = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName
+        "firstName": this.state.firstName,
+        "lastName": this.state.lastName
       };
       console.log(newJournalist)
+      props.handleJournalistPost(newJournalist);
     }
 
 
@@ -36,7 +37,6 @@ class NewJournalistForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-
         <div>
           <label htmlFor="firstName">First Name: </label>
           <input
