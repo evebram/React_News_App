@@ -57,7 +57,6 @@ class NewArticleForm extends Component {
   handleContentChange(event) {
     this.setState({ content: event.target.value });
   }
-
   handleCategoryChange(event) {
   const value = event.target.value;
   this.setState(prevState => ({
@@ -71,7 +70,6 @@ class NewArticleForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log();
     const newArticle = {
       title: this.state.title,
       journalist: this.state.journalist,

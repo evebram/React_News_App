@@ -95,6 +95,7 @@ class NewsContainer extends Component {
                 updateRating={this.updateRating}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
+                <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
           </React.Fragment>
          </Router>
