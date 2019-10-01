@@ -37,16 +37,18 @@ class NewArticleForm extends Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:8080/journalists";
-
-    fetch(url)
-    .then(res => res.json())
-    .then(journalists => this.setState({journalists: journalists._embedded.journalists}))
-    .catch(err => console.error);
+    this.fetchJournalists();
   }
 
-  getJournalists(id){
-    const url = `http://localhost:8080/journalists/${id}`
+  fetchJournalists() {
+  fetch(`http://localhost:8080/journalists`)
+    .then(response => response.json())
+    .then(data =>
+      this.setState({
+        getJournalists: data._embedded.journalists
+      })
+    )
+    .catch(err => console.error);
   }
 
   handleTitleChange(event) {
@@ -98,7 +100,11 @@ class NewArticleForm extends Component {
 
   render() {
     const categories = ['Politics', 'Education', 'Health', 'Tech', 'Science', 'Crime'];
+
+    const { journalists } = this.state;
+
     return (
+
       <form onSubmit={this.handleSubmit}>
 
       <div>
@@ -158,10 +164,8 @@ class NewArticleForm extends Component {
 
       <div tag="fieldset">
         <label htmlFor="category">Category: </label>
-          <div>
             {categories.map((category, index) =>
                 <label key={index} >
-                  {category}
                   <input
                   value={category}
                   name={category}
@@ -169,19 +173,45 @@ class NewArticleForm extends Component {
                   onChange={this.handleCategoryChange}
                   type="checkbox"
                   />
+                  {category}
                 </label>
               )}
-          </div>
       </div>
+
+
 
       <div>
         <input type="submit" />
       </div>
 
       </form>
+
     )
   }
 
 }
 
 export default NewArticleForm;
+
+
+// <div>
+//   <select>
+//     {journalists.map((item) =>
+//       <option value={item.firstName}>{item.firstName}
+//       </option>
+//     )}
+//   </select>
+// </div>
+
+
+
+
+// journalists.map(journalist => {
+//       const { firstName, lastName } = journalist;
+//       return (
+//         <div>
+//           <p>First Name: {firstName}</p>
+//           <p>LastName: {lastName}</p>
+//         </div>
+//       );
+//     })
