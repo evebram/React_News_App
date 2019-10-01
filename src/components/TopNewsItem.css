@@ -1,0 +1,25 @@
+.top-story {
+  font-size: 40px;
+  float: left;
+  height: 100%;
+}
+
+.top-story-objects {
+  display: inline-flex;
+}
+
+.top-story-info {
+  display: block;
+}
+
+.top-story img {
+  float: left;
+  max-height:300px;
+  height:auto;
+  margin-top: 40px;
+  padding: 20px
+}
+
+.top-story button {
+  width: 100%;
+}

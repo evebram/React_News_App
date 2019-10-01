@@ -1,24 +1,46 @@
 import React from 'react';
 import NewsItem from './NewsItem.js';
 
-
 const NewsList = (props) => {
 
-  const articleNodes = props.articles.map((article, index) => {
-    return (
-      <NewsItem key={index} article={article}></NewsItem>
-    )
-  })
+  //sorts articles
+    const allArticlesSorted = props.articles.sort(function(a, b) {
+      return b.rating - a.rating
+    });
+
+  //sorts filteredArticles
+    const categoryArticlesSorted = props.filteredArticles.sort(function(a, b) {
+      return b.rating - a.rating
+    });
+
+
+const articleNodes = () => {
+  let filteredNodes;
+
+  if(!props.category) {
+    filteredNodes = (allArticlesSorted.slice(1)).map( (article, index) => {
+      return (
+        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
+      )
+    })
+  }
+  else
+  {
+    filteredNodes = (categoryArticlesSorted.slice(1)).map( (article, index) => {
+      return (
+        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
+      )
+    })
+  }
+
+  return filteredNodes
+}
 
 return(
-  <>
-    <hr />
-    <h2>News List</h2>
-    {articleNodes}
-  </>
-
-)
-
+    <>
+      {articleNodes()}
+    </>
+  )
 }
 
 export default NewsList;

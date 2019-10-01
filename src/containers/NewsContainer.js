@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import TopStory from '../components/TopStory.js';
 import Category from '../components/Category.js';
-import NewsList from '../components/NewsList.js';
+
 import NavBar from '../components/NavBar.js';
 import Home from '../components/Home.js';
 import NewArticleForm from '../components/NewArticleForm.js';
@@ -21,8 +20,12 @@ class NewsContainer extends Component {
       category: null,
     };
     this.filterArray = this.filterArray.bind(this);
-    this.setfilteredArray = this.setfilteredArray.bind(this);
+    this.filterArrayAll = this.filterArrayAll.bind(this);
+    this.updateRating = this.updateRating.bind(this);
+    this.updateRatingLocal = this.updateRatingLocal.bind(this);
   };
+
+
 
   componentDidMount() {
     const url = "http://localhost:8080/articles";
@@ -33,42 +36,67 @@ class NewsContainer extends Component {
     .catch(err => console.error);
   }
 
-  setfilteredArray() {
-    this.setState({filteredArticles: this.state.articles})
-  }
-
-  filterArray(value) {
-      this.setState({category: value})
-      var articlesByCategory = this.state.articles.filter(function (el) {
-        if(el.source.name.includes(value)) {
-          return el;
-        }
+  filterArray(selectedCategory) {
+      this.setState({category: selectedCategory})
+      const articlesByCategory = []
+       this.state.articles.filter(function(articleObject) {
+        articleObject.categories.forEach(function(category) {
+          if(category.name.includes(selectedCategory)) {
+            articlesByCategory.push(articleObject);
+          }
+        })
       })
       this.setState({filteredArticles: articlesByCategory})
   }
+
+  updateRatingLocal(id, newRating){
+    let articlesToModify = [...this.state.articles]
+    let index = articlesToModify.findIndex(article => article.id === id)
+    articlesToModify[index].rating = newRating;
+    this.setState(articlesToModify)
+  }
+
+  updateRating(id, newRating){
+    const url = `http://localhost:8080/articles/${id}`
+    let updatedRating = { rating: newRating}
+    fetch(url, {
+      method: "PATCH",
+      body: JSON.stringify(updatedRating),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(res => res.json())
+    .catch(err => console.error);
+
+    this.updateRatingLocal(id, newRating);
+
+  }
+
+  filterArrayAll() {
+    const articlesByCategory = this.state.articles
+    this.setState({filteredArticles: articlesByCategory})
+  }
+
 
 
   render() {
      return(
        <>
          <h1>The News</h1>
-         <Category filterArray={this.filterArray} />
          <Router>
           <React.Fragment>
             <NavBar />
               <Switch>
                 <Route
                 exact path="/"
-                render={() => <Home articles={this.state.articles}/>}
+                render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}
+                updateRating={this.updateRating}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
-                <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
           </React.Fragment>
          </Router>
-
-
-
        </>
      )
   }
@@ -76,3 +104,7 @@ class NewsContainer extends Component {
 }
 
 export default NewsContainer;
+
+
+
+// <Route path="/journalist" component={NewJournalistForm} />
