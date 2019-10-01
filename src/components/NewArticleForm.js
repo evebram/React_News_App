@@ -38,9 +38,9 @@ class NewArticleForm extends Component {
   handleDateChange(event) {
     this.setState({ date: event.target.value });
   }
-  handleDateChange(event) {
-    this.setState({ date: event.target.value });
-  }
+  handleChange = newDate => {
+    this.setState({date: newDate  });
+  };
   handleSummaryChange(event) {
     this.setState({ summary: event.target.value });
   }
@@ -52,11 +52,11 @@ class NewArticleForm extends Component {
   }
 
   handleCategoryChange(event) {
-  const selectedCategory = event.target.value;
+  const { value } = event.target.value;
   this.setState(prevState => ({
       category: {
         ...prevState.category,
-        [selectedCategory]: !prevState.category[selectedCategory]
+        [value]: !prevState.category[value]
       }
     }));
     };
@@ -153,7 +153,7 @@ class NewArticleForm extends Component {
         <label htmlFor="category">Category: </label>
           <div check>
             {categories.map((category, index) =>
-                <label check key={index}>
+                <label check key={index} >
                   {category}
                   <input
                   value={category}
@@ -161,7 +161,7 @@ class NewArticleForm extends Component {
                   checked={this.state.taggedCategories === category}
                   onChange={this.handleCategoryChange}
                   type="checkbox"
-                  className="form-check-input" />
+                  />
                 </label>
               )}
           </div>
