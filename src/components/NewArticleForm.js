@@ -55,7 +55,7 @@ class NewArticleForm extends Component {
     this.setState({ content: event.target.value });
   }
 
-  handleCategoryChange = (event) => {
+  handleCategoryChange(event) {
   const selectedCategory = event.target.value;
   this.setState(prevState => ({
       category: {
@@ -139,8 +139,8 @@ class NewArticleForm extends Component {
       </div>
 
       <div>
-        <label htmlFor="exampleImage">Image</label>
-        <input type="file" name="image" id="exampleImage" />
+        <label htmlFor="exampleImage">Image: </label>
+        <input type="url" name="image" id="exampleImage" />
       </div>
 
       <div>
@@ -154,21 +154,21 @@ class NewArticleForm extends Component {
       </div>
 
       <div tag="fieldset">
-      <label htmlFor="category">Category: </label>
-        <div check>
-          {categories.map((category, index) =>
-              <label check key={index}>
-                {category}
-                <input
-                value={category}
-                name= 'category[]'
-                checked={this.state.taggedCategories === category}
-                onChange={this.handleCategoryChange}
-                type="checkbox"
-                className="form-check-input" />
-              </label>
-            )}
-        </div>
+        <label htmlFor="category">Category: </label>
+          <div check>
+            {categories.map((category, index) =>
+                <label check key={index}>
+                  {category}
+                  <input
+                  value={category}
+                  name= 'category[]'
+                  checked={this.state.taggedCategories === category}
+                  onChange={this.handleCategoryChange}
+                  type="checkbox"
+                  className="form-check-input" />
+                </label>
+              )}
+          </div>
       </div>
 
       <div>
