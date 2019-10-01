@@ -19,7 +19,12 @@ const TopNewsItem = (props) => {
           <h6>{props.topArticle.summary}</h6>
         </div>
       </div>
-       <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.topArticle.content}</p><p>{props.topArticle.journalist[0].firstName} {props.topArticle.journalist[0].lastName}</p></Collapsible></button>
+       <button onClick={handleClick}><Collapsible trigger="| Full story |" >
+       <p>{props.topArticle.content}</p>
+       <div className='journalist-tag'>
+         <p>See more stories by {props.topArticle.journalist[0].firstName} {props.topArticle.journalist[0].lastName}...</p>
+       </div>
+       </Collapsible></button>
     </div>
   )
 }

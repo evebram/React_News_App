@@ -23,3 +23,8 @@
 .top-story button {
   width: 100%;
 }
+
+.journalist-tag {
+  font-size: 12px;
+  float: right;
+}
