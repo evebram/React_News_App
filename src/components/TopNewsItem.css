@@ -25,6 +25,14 @@
 }
 
 .journalist-tag {
-  font-size: 12px;
+  font-size: 14px;
   float: right;
+}
+
+.top-story p {
+  font-size: 17px;
+}
+
+.top-story button {
+  font-size: 17px;
 }
