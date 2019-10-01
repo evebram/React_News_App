@@ -10,7 +10,7 @@ const articleNodes = () => {
   if(!props.category) {
     filteredNodes = props.articles.map( (article, index) => {
       return (
-        <NewsItem key={index} article={article}></NewsItem>
+        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
       )
     })
   }
@@ -18,7 +18,7 @@ const articleNodes = () => {
   {
     filteredNodes = props.filteredArticles.map( (article, index) => {
       return (
-        <NewsItem key={index} article={article}></NewsItem>
+        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
       )
     })
   }
