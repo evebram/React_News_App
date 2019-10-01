@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import axios from 'axios';
 
-
 import "react-datepicker/dist/react-datepicker.css";
 
 class NewArticleForm extends Component {
@@ -36,15 +35,12 @@ class NewArticleForm extends Component {
   handleJournalistChange(event) {
     this.setState({ journalist: event.target.value });
   }
-
   handleDateChange(event) {
     this.setState({ date: event.target.value });
   }
-
   handleDateChange(event) {
     this.setState({ date: event.target.value });
   }
-
   handleSummaryChange(event) {
     this.setState({ summary: event.target.value });
   }
