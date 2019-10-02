@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import DatePicker from "react-datepicker";
+import Request from "../helpers/request";
 import axios from 'axios';
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -91,7 +92,7 @@ class NewArticleForm extends Component {
     }
     const newArticle = {
       title: this.state.title,
-      journalist: this.state.journalist,
+      journalist: `http://localhost:8080/journalists/${this.state.journalist}`,
       date: this.state.date,
       summary: this.state.summary,
       image: this.state.image,
@@ -100,13 +101,21 @@ class NewArticleForm extends Component {
     };
     console.log(newArticle)
     alert(`Thank you for submitting`);
+    this.handleArticlePost(newArticle);
   }
+
+  handleArticlePost(article){
+   const request = new Request();
+   request.post('http://localhost:8080/articles', article).then(() => {
+     window.location = 'http://localhost:3000/'
+   })
+ }
 
     canBeSubmitted() {
     const { title, journalist, summary, image, content} = this.state;
     return title.length > 0
     && journalist.length > 0
-    && summary.length > 50
+    && summary.length > 20
     && image.length > 0
     && content.length > 50;
   }

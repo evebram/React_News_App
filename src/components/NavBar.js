@@ -39,7 +39,8 @@ showDropdownMenu(event) {
           <ul>
          <li><Link to="/" >Home</Link></li>
          <li><Link to="/article" >New Article</Link></li>
-         <li><Link to="/journalist" >New Journalist</Link></li>
+         <li><Link to="/journalists" >Journalist</Link></li>
+         <li><Link to="/journalists/new" >Add New Journalist</Link></li>
           </ul>
         ):
         (
