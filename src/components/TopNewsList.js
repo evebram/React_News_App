@@ -20,11 +20,11 @@ const TopNewsList = (props) => {
     let arrayCategory = categoryArticlesSorted
     if(!categoryArticlesSorted) {
     return (
-        <TopNewsItem topArticle={arrayAll}></TopNewsItem>
+        <TopNewsItem topArticle={arrayAll} filterArrayByJournalist={props.filterArrayByJournalist}></TopNewsItem>
     )
   } else {
     return (
-        <TopNewsItem topArticle={arrayCategory}></TopNewsItem>
+        <TopNewsItem topArticle={arrayCategory} filterArrayByJournalist={props.filterArrayByJournalist}></TopNewsItem>
     )
    }
   }
