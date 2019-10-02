@@ -1,5 +1,5 @@
 import React from 'react';
-import './Category.css';
+import './css/Category.css';
 
 const Category = ({filterArray, filterArrayAll}) => {
 

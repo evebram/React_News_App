@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewsItem.css';
+import './css/NewsItem.css';
 import Collapsible from 'react-collapsible';
 const NewsItem = (props) => {
 

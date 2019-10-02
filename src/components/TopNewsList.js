@@ -34,7 +34,6 @@ const TopNewsList = (props) => {
   } else {
       return(
       <>
-      <hr />
       {selectArray()}
     </>
     )
