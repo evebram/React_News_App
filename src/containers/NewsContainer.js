@@ -58,6 +58,7 @@ class NewsContainer extends Component {
   }
 
   filterArrayByJournalist(journalist) {
+  
     const articlesByJournalist = []
     this.state.articles.filter(function(articleObject) {
       if(articleObject.journalist.lastName.includes(journalist)) {
@@ -65,6 +66,7 @@ class NewsContainer extends Component {
       }
     })
     this.setState({filteredArticles: articlesByJournalist})
+
   }
 
 
