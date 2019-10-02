@@ -14,3 +14,12 @@ h1 {
   display: inline;
   font-family: 'Raleway', sans-serif;
   }
+
+  img {
+    height: 100px;
+    width: 100px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    display: inline;
+
+  }

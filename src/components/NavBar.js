@@ -32,8 +32,8 @@ showDropdownMenu(event) {
 
   render() {
     return (
-        <div  className="menu-dropdown" style = {{background:"darkred",width:"200px", height:"50px"}} >
-         <button className="menu-button" onClick={this.showDropdownMenu}> Admin</button>
+        <div  className="menu-dropdown" >
+         <div className="menu-button" onClick={this.showDropdownMenu}> Admin</div>
 
           { this.state.displayMenu ? (
           <ul>
@@ -56,6 +56,8 @@ showDropdownMenu(event) {
 
 export default NavBar;
 
+
+// style = {{background:"darkred",width:"200px"}}
 
 //
 // import React from "react";
