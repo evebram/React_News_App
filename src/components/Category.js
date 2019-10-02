@@ -15,7 +15,7 @@ const Category = ({filterArray, filterArrayAll}) => {
   return (
     <div className='category-button'>
       <button onClick={handleClickAll}>All Stories</button>
-      <button value="Sport" onClick={handleClick}>Sport</button>
+      <button class='sport' value="Sport" onClick={handleClick}>Sport</button>
       <button value="Politics" onClick={handleClick}>Politics</button>
       <button value="Business" onClick={handleClick}>Business</button>
       <button value="Environment" onClick={handleClick}>Environment</button>

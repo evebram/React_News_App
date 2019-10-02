@@ -14,7 +14,10 @@
 .dropdown {
   float: right;
   position: relative;
+  index: 2;
   display: inline-block;
+  vertical-align: left;
+  padding-right: 20px;
 }
 
 .dropdown-content {
