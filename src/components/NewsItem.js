@@ -8,6 +8,14 @@ const NewsItem = (props) => {
     props.updateRating(props.article.id, updatedRating)
   }
 
+  const handleClickJournalist = () => {
+    props.filterArrayByJournalist(props.article.journalist.lastName);
+    console.log("journalist filter clicked")
+    console.log(props.article.journalist.lastName)
+  }
+
+
+
  return (
    <div className='story-list'>
      <hr />
@@ -20,7 +28,8 @@ const NewsItem = (props) => {
       </div>
      <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p>
      <div className='journalist-tag'>
-       <a href="">See more stories by {props.article.journalist.firstName} {props.article.journalist.lastName}...</a>
+       <a onClick={handleClickJournalist}>
+       See more stories by {props.article.journalist.firstName} {props.article.journalist.lastName}...</a>
      </div>
      </Collapsible></button>
    </div>

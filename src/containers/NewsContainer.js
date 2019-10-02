@@ -25,9 +25,8 @@ class NewsContainer extends Component {
     this.updateRating = this.updateRating.bind(this);
     this.updateRatingLocal = this.updateRatingLocal.bind(this);
     this.handleJournalistPost = this.handleJournalistPost.bind(this);
+    this.filterArrayByJournalist = this.filterArrayByJournalist.bind(this);
   };
-
-
 
   componentDidMount() {
     const url = "http://localhost:8080/articles";
@@ -50,6 +49,24 @@ class NewsContainer extends Component {
       })
       this.setState({filteredArticles: articlesByCategory})
   }
+
+  filterArrayAll() {
+    const articlesByCategory = this.state.articles
+    this.setState({filteredArticles: articlesByCategory})
+  }
+
+  filterArrayByJournalist(journalist) {
+    console.log("filterArray launched")
+    console.log(journalist)
+    const articlesByJournalist = []
+    this.state.articles.filter(function(articleObject) {
+      if(articleObject.journalist.lastName.includes(journalist)) {
+        articlesByJournalist.push(articleObject);
+      }
+    })
+    this.setState({filteredArticles: articlesByJournalist})
+  }
+
 
 //update rating for article popularity
   updateRatingLocal(id, newRating){
@@ -85,11 +102,6 @@ class NewsContainer extends Component {
   }
 
 
-  filterArrayAll() {
-    const articlesByCategory = this.state.articles
-    this.setState({filteredArticles: articlesByCategory})
-  }
-
 
 
   render() {
@@ -103,7 +115,7 @@ class NewsContainer extends Component {
                 <Route
                 exact path="/"
                 render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}
-                updateRating={this.updateRating}/>}
+                updateRating={this.updateRating} filterArrayByJournalist={this.filterArrayByJournalist}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
                 <Route path="/journalist" component={NewJournalistForm}

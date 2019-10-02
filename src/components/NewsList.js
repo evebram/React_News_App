@@ -20,7 +20,7 @@ const articleNodes = () => {
   if(!props.category) {
     filteredNodes = (allArticlesSorted.slice(1)).map( (article, index) => {
       return (
-        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
+        <NewsItem key={index} article={article} updateRating={props.updateRating} filterArrayByJournalist={props.filterArrayByJournalist}></NewsItem>
       )
     })
   }
@@ -28,7 +28,7 @@ const articleNodes = () => {
   {
     filteredNodes = (categoryArticlesSorted.slice(1)).map( (article, index) => {
       return (
-        <NewsItem key={index} article={article} updateRating={props.updateRating}></NewsItem>
+        <NewsItem key={index} article={article} updateRating={props.updateRating} filterArrayByJournalist={props.filterArrayByJournalist}></NewsItem>
       )
     })
   }
