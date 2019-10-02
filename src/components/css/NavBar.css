@@ -1,53 +1,84 @@
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: darkred;
   color: white;
-  padding: 16px;
+  padding: 20px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  height: 50px;
 }
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3e8e41;
+  background-color: crimson;
 }
 
 .dropdown {
   float: right;
   position: relative;
-  index: 2;
   display: inline-block;
   vertical-align: left;
   padding-right: 20px;
 }
 
+button {
+  width: 160px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  background-color: darkred;
+  display: inline;
+  float: top left;
+  color: white;
+  width: 8%;
+  height: 50px;
+  margin: 0px;
+  margin-top: 0px;
+  border: 0px;
+  z-index: 2;
+}
+
+button:hover{
+  background-color: crimson;
+}
+
+button:focus{
+  background-color: crimson;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: white;
   min-width: 160px;
+  min-height: 50px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px crimson;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   right: 0;
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
+.dropdown-content {
+  color: white;
+  padding: 20px 20px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown:hover {
+  background-color: crimson;
+}
 
 .show {display: block;}
 
 body {
   font-family: 'Raleway', sans-serif;
   text-align: center;
-  margin: 10px;
+  margin: 20px;
+  color: white;
+  font-size: 16px;
 }
 
 li {
   list-style-type: circle;
+  color: white;
 }

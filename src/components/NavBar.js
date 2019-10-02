@@ -32,8 +32,8 @@ showDropdownMenu(event) {
 
   render() {
     return (
-        <div  className="dropdown" style = {{background:"grey",width:"200px"}} >
-         <div className="button" onClick={this.showDropdownMenu}> Admin options </div>
+        <div  className="dropdown" style = {{background:"darkred",width:"200px"}} >
+         <button onClick={this.showDropdownMenu}> Admin </button>
 
           { this.state.displayMenu ? (
           <ul>
@@ -54,6 +54,8 @@ showDropdownMenu(event) {
 }
 
 export default NavBar;
+
+ // <div className="button" onClick={this.showDropdownMenu}> Admin options </div>
 
 
 //
