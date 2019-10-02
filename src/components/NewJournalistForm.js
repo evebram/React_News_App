@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 const NewJournalistForm = (props) => {
    function handleSubmit(event) {
      event.preventDefault();
@@ -12,10 +13,21 @@ const NewJournalistForm = (props) => {
    return (
      <div className="form">
      <form onSubmit={handleSubmit}>
-        <label >Title: </label>
-         <input type="text" placeholder="First Name" name="firstName"/>
-         <input type="text" placeholder="Last Name" name="lastName"/>
-         <button type="submit">Save</button>
+      <div>
+        <label >First Name: </label>
+         <div>
+         <input type="text"  name="firstName"/>
+         </div>
+        </div>
+
+        <div>
+         <label >Last Name: </label>
+         <div>
+         <input type="text"  name="lastName"/>
+         </div>
+        </div>
+
+         <button className="submitJournalist" type="submit">Save</button>
      </form>
      </div>
    )

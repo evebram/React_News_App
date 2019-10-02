@@ -11,9 +11,11 @@ const JournalistList = (props) => {
    )
  })
 return (
- <ul className="component-list">
- {journalists}
- </ul>
+ <div className="form">
+  <ul className="component-list">
+    {journalists}
+  </ul>
+ </div>
 )
 }
 export default JournalistList;
