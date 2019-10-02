@@ -31,6 +31,7 @@ const TopNewsItem = (props) => {
          <a onClick={handleClickJournalist}>See more stories by {props.topArticle.journalist.firstName} {props.topArticle.journalist.lastName}...</a>
        </div>
        </Collapsible></button>
+       <br/>
     </div>
   )
 }

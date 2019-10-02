@@ -35,7 +35,9 @@ class NewsContainer extends Component {
     .then(res => res.json())
     .then(articles => this.setState({articles: articles._embedded.articles}))
     .catch(err => console.error);
+
   }
+
 
   filterArray(selectedCategory) {
       this.setState({category: selectedCategory})
