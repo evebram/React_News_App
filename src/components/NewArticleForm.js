@@ -130,55 +130,71 @@ class NewArticleForm extends Component {
 
     return (
 
+      <div className="form">
       <form onSubmit={this.handleSubmit}>
 
       <div>
         <label htmlFor="title">Title: </label>
+        <div>
         <input
           id="title"
           type="text"
           value={this.state.title}
           onChange={this.handleTitleChange}
         />
+        </div>
       </div>
 
       <div>
         <label htmlFor="journalist">Author: </label>
+        <div>
         <select onChange={this.handleJournalistChange}>
           {this.state.journalistArray.map((item) =>
             <option value={item.id}>{item.firstName} {item.lastName}
             </option>
           )}
         </select>
+        </div>
       </div>
 
       <div>
       <label htmlFor="date">Date: </label>
+      <div>
         <DatePicker
           selected={this.state.date}
           onChange={this.handleDateChange}
           showTimeSelect
           dateFormat="Pp"
         />
+        </div>
       </div>
 
       <div>
         <label htmlFor="summary">Summary: </label>
+        <div>
         <input
+          className="summaryField"
           id="summary"
           type="text"
           value={this.state.summary}
           onChange={this.handleSummaryChange}
         />
+        </div>
       </div>
 
       <div>
         <label htmlFor="exampleImage">Image: </label>
-        <input type="url" name="image" id="exampleImage" onChange={this.handleImageChange}/>
+        <div>
+        <input
+        type="url"
+        name="image"
+        id="exampleImage" onChange={this.handleImageChange}/>
+        </div>
       </div>
 
       <div tag="fieldset">
         <label htmlFor="category">Category: </label>
+          <div>
             {categories.map((category, index) =>
                 <label key={index} >
                   <input
@@ -191,25 +207,30 @@ class NewArticleForm extends Component {
                   {category}
                 </label>
               )}
+          </div>
       </div>
 
       <div>
         <label htmlFor="content">Story: </label>
+        <div>
         <input
+          className="contentField"
           id="content"
           type="text"
           value={this.state.content}
           onChange={this.handleContentChange}
         />
+        </div>
       </div>
 
       <div>
-      <button disabled={!isEnabled} type="submit" >
+      <button className="submitArticle" disabled={!isEnabled} type="submit" >
         Submit
       </button>
       </div>
 
       </form>
+      </div>
 
     )
   }

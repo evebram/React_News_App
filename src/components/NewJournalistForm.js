@@ -10,8 +10,9 @@ const NewJournalistForm = (props) => {
      console.log(journalist)
    }
    return (
-     <div>
+     <div className="form">
      <form onSubmit={handleSubmit}>
+        <label >Title: </label>
          <input type="text" placeholder="First Name" name="firstName"/>
          <input type="text" placeholder="Last Name" name="lastName"/>
          <button type="submit">Save</button>
