@@ -1,71 +1,27 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
-class NewJournalistForm extends Component {
-  constructor(props) {
-    super(props);
+const NewJournalistForm = (props) => {
 
-    this.state = {
-      firstName: '',
-      lastName: ''
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleLastNameChange = this.handleLastNameChange.bind(this);
-  }
-
-    handleFirstNameChange(event) {
-      this.setState({ firstName: event.target.value });
-    }
-    handleLastNameChange(event) {
-      this.setState({ lastName: event.target.value });
-    }
-
-    handleSubmit(event) {
+    function handleSubmit(event) {
       event.preventDefault();
-      const newJournalist = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName
-      };
-      console.log(newJournalist)
+      const journalist = {
+        "firstName": event.target.firstName.value,
+        "lastName": event.target.lastName.value
+      }
+      props.handleJournalistPost(journalist);
+      console.log(journalist)
     }
 
-
-
-  render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-
-        <div>
-          <label htmlFor="firstName">First Name: </label>
-          <input
-            id="firstName"
-            type="text"
-            value={this.state.firstName}
-            onChange={this.handleFirstNameChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="lastName">Last Name: </label>
-          <input
-            id="lastName"
-            type="text"
-            value={this.state.lastName}
-            onChange={this.handleLastNameChange}
-          />
-        </div>
-
-        <div>
-          <input type="submit" />
-        </div>
-
+      <div>
+      <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="First Name" name="firstName"/>
+          <input type="text" placeholder="Last Name" name="lastName"/>
+          <button type="submit">Save</button>
       </form>
-
+      </div>
     )
   }
-}
 
 export default NewJournalistForm;
 

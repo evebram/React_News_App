@@ -6,6 +6,9 @@ import NavBar from '../components/NavBar.js';
 import Home from '../components/Home.js';
 import NewArticleForm from '../components/NewArticleForm.js';
 import NewJournalistForm from '../components/NewJournalistForm.js';
+import JournalistFormContainer from './journalists/JournalistFormContainer.js';
+import Request from '../helpers/request';
+import JournalistList from '../components/JournalistList.js';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -19,13 +22,13 @@ class NewsContainer extends Component {
       filteredArticles: [],
       currentArticle: null,
       category: null,
+      journalistArray: [],
     };
     this.filterArray = this.filterArray.bind(this);
     this.filterArrayAll = this.filterArrayAll.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateRatingLocal = this.updateRatingLocal.bind(this);
   };
-
 
 
   componentDidMount() {
@@ -35,7 +38,18 @@ class NewsContainer extends Component {
     .then(res => res.json())
     .then(articles => this.setState({articles: articles._embedded.articles}))
     .catch(err => console.error);
+
+
+    fetch("http://localhost:8080/journalists")
+    .then(res => res.json())
+    .then(data =>
+      this.setState({
+        journalistArray: data._embedded.journalists
+      })
+    )
+      .catch(err => console.error);
   }
+
 
   filterArray(selectedCategory) {
       this.setState({category: selectedCategory})
@@ -95,7 +109,13 @@ class NewsContainer extends Component {
                 updateRating={this.updateRating}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
-                <Route path="/journalist" component={NewJournalistForm} />
+                <Route exact path="/journalists" render={(props) => {
+                  return <JournalistList journalists={this.state.journalistArray}/>
+                }} />
+                <Route exact path = '/journalists/new'
+                render={(props) =>{
+                  return <JournalistFormContainer journalists = {this.state.journalists}/>
+                }}/>
               </Switch>
           </React.Fragment>
          </Router>
