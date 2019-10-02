@@ -13,10 +13,8 @@ const NewsList = (props) => {
       return b.rating - a.rating
     });
 
-
 const articleNodes = () => {
   let filteredNodes;
-
   if(!props.category) {
     filteredNodes = (allArticlesSorted.slice(1)).map( (article, index) => {
       return (
@@ -32,7 +30,6 @@ const articleNodes = () => {
       )
     })
   }
-
   return filteredNodes
 }
 

@@ -111,7 +111,10 @@ class NewsContainer extends Component {
                 render={() => <Home filterArray={this.filterArray} filterArrayAll={this.filterArrayAll} articles={this.state.articles} filteredArticles={this.state.filteredArticles} category={this.state.category}
                 updateRating={this.updateRating} filterArrayByJournalist={this.filterArrayByJournalist}/>}
                 />
-                <Route path="/article" component={NewArticleForm} />
+                <Route
+                path="/article"
+                render={() => <NewArticleForm articles={this.state.articles}/>}/>
+
 
                 <Route path="/journalist" component={NewJournalistForm} />
               </Switch>
