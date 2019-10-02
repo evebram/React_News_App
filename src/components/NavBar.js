@@ -33,14 +33,17 @@ showDropdownMenu(event) {
   render() {
     return (
         <div  className="menu-dropdown" >
-         <div className="menu-button" onClick={this.showDropdownMenu}> Admin</div>
+         <button className="menu-button" onClick={this.showDropdownMenu}> Admin</button>
 
           { this.state.displayMenu ? (
           <ul>
-         <li><Link to="/" >Home</Link></li>
-         <li><Link to="/article" >New Article</Link></li>
-         <li><Link to="/journalists" >Journalist</Link></li>
-         <li><Link to="/journalists/new" >Add New Journalist</Link></li>
+         <li><Link style={{ textDecoration: 'none', color: 'white', position: 'right' }} to="/" >Home</Link></li>
+
+         <li><Link style={{ textDecoration: 'none', color: 'white' }} to="/article" >New Article</Link></li>
+
+         <li><Link style={{ textDecoration: 'none', color: 'white', position: 'right' }} to="/journalists" >Journalist</Link></li>
+
+         <li><Link style={{ textDecoration: 'none', color: 'white', position: 'right' }} to="/journalists/new" >Add New Journalist</Link></li>
           </ul>
         ):
         (

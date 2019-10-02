@@ -6,6 +6,8 @@ body {
 header {
   background-color: dimgrey;
   height: 100px;
+  border-bottom: darkred;
+  border-width: thick;
 }
 
 h1 {

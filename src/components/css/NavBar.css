@@ -46,11 +46,11 @@ body {
 }
 li {
  list-style-type: circle;
+ color: white;
 }
 
-
 .menu-button {
-  width: 160px;
+  width: 200px;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   background-color: darkred;
@@ -59,19 +59,17 @@ li {
   color: white;
   width: 8%;
   height: 50px;
-  margin: 0px;
-  margin-top: 0px;
   border: 0px;
   z-index: 2;
   cursor: pointer;
   text-align: center;
-
+  padding-right: 100px;
 }
 
-.menu-button:hover{
+/* .menu-button:hover{
   background-color: crimson;
 }
 
 .menu-button:focus{
   background-color: crimson;
-}
+} */
