@@ -29,7 +29,7 @@ class NewJournalistForm extends Component {
         "lastName": this.state.lastName
       };
       console.log(newJournalist)
-      props.handleJournalistPost(newJournalist);
+      // props.handleJournalistPost(newJournalist);
     }
 
 

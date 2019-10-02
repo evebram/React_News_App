@@ -24,6 +24,7 @@ class NewsContainer extends Component {
     this.filterArrayAll = this.filterArrayAll.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateRatingLocal = this.updateRatingLocal.bind(this);
+    this.handleJournalistPost = this.handleJournalistPost.bind(this);
   };
 
 
@@ -75,6 +76,8 @@ class NewsContainer extends Component {
 
 //create new journalist
   handleJournalistPost(journalist) {
+    const url = `http://localhost:8080/journalists`
+    let newJournalist = journalist
     const request = new Request();
     request.post('/journalists', journalist).then(() => {
       window.location = '/journalists'
@@ -103,7 +106,9 @@ class NewsContainer extends Component {
                 updateRating={this.updateRating}/>}
                 />
                 <Route path="/article" component={NewArticleForm} />
-                <Route path="/journalist" component={NewJournalistForm} handleJournalistPost={this.handleJournalistPost}/>
+                <Route path="/journalist" component={NewJournalistForm}
+                />
+
               </Switch>
           </React.Fragment>
          </Router>
@@ -118,3 +123,8 @@ export default NewsContainer;
 
 
 // <Route path="/journalist" component={NewJournalistForm} />
+
+
+// <Route path="/journalist"
+// render={() => <NewJournalistForm handleJournalistPost={this.handleJournalistPost}/>}
+// />
