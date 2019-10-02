@@ -8,6 +8,7 @@ class Header extends Component {
       <>
        <header>
         <h1>What's Going On</h1>
+        <img src="loudspeaker.png" />
        </header>
       </>
     );

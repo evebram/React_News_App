@@ -32,15 +32,14 @@ showDropdownMenu(event) {
 
   render() {
     return (
-        <div  className="dropdown" style = {{background:"darkred",width:"200px"}} >
-         <button onClick={this.showDropdownMenu}> Admin </button>
+        <div  className="menu-dropdown" style = {{background:"darkred",width:"200px", height:"50px"}} >
+         <button className="menu-button" onClick={this.showDropdownMenu}> Admin</button>
 
           { this.state.displayMenu ? (
           <ul>
          <li><Link to="/" >Home</Link></li>
          <li><Link to="/article" >New Article</Link></li>
-         <li><Link to="/journalists" >Journalist</Link></li>
-         <li><Link to="/journalists/new" >Add New Journalist</Link></li>
+         <li><Link to="/journalist" >New Journalist</Link></li>
           </ul>
         ):
         (
@@ -55,8 +54,6 @@ showDropdownMenu(event) {
 }
 
 export default NavBar;
-
- // <div className="button" onClick={this.showDropdownMenu}> Admin options </div>
 
 
 //
