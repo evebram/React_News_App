@@ -9,9 +9,7 @@ const NewsItem = (props) => {
   }
 
   const handleClickJournalist = () => {
-    props.filterArrayByJournalist(props.article.journalist.lastName);
-    console.log("journalist filter clicked")
-    console.log(props.article.journalist.lastName)
+    props.filterArrayByJournalist(props.article.journalist.firstName, props.article.journalist.lastName);
   }
 
 

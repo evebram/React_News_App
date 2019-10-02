@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Category from '../components/Category.js';
-
 import Header from '../components/Header.js';
 import NavBar from '../components/NavBar.js';
 import Home from '../components/Home.js';
@@ -30,14 +28,11 @@ class NewsContainer extends Component {
 
   componentDidMount() {
     const url = "http://localhost:8080/articles";
-
     fetch(url)
     .then(res => res.json())
     .then(articles => this.setState({articles: articles._embedded.articles}))
     .catch(err => console.error);
-
   }
-
 
   filterArray(selectedCategory) {
       this.setState({category: selectedCategory})
@@ -57,16 +52,15 @@ class NewsContainer extends Component {
     this.setState({filteredArticles: articlesByCategory})
   }
 
-  filterArrayByJournalist(journalist) {
-  
+//filters articles by journalist
+  filterArrayByJournalist(journalistFirst, journalistLast) {
     const articlesByJournalist = []
     this.state.articles.filter(function(articleObject) {
-      if(articleObject.journalist.lastName.includes(journalist)) {
+      if(articleObject.journalist.firstName.includes(journalistFirst) & articleObject.journalist.lastName.includes(journalistLast))  {
         articlesByJournalist.push(articleObject);
       }
     })
     this.setState({filteredArticles: articlesByJournalist})
-
   }
 
 

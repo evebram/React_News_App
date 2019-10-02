@@ -8,8 +8,10 @@
   float: left;
   max-height: 300px;
   width: auto;
-  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .top-story button {
@@ -31,7 +33,7 @@
 
 
 .top-story-info {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .top-story h4 {

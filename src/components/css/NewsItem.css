@@ -3,6 +3,7 @@
   float: left;
   height: auto;
   padding: 15px;
+  border-radius: 20px;
 }
 
 .story-list button {
@@ -11,4 +12,7 @@
 
 .story-list h6 {
   font-style: italic;
+}
+.story-list-info {
+  margin-left: 20px;
 }
