@@ -164,16 +164,6 @@ class NewArticleForm extends Component {
         <input type="url" name="image" id="exampleImage" onChange={this.handleImageChange}/>
       </div>
 
-      <div>
-        <label htmlFor="content">Story: </label>
-        <input
-          id="content"
-          type="text"
-          value={this.state.content}
-          onChange={this.handleContentChange}
-        />
-      </div>
-
       <div tag="fieldset">
         <label htmlFor="category">Category: </label>
             {categories.map((category, index) =>
@@ -189,6 +179,18 @@ class NewArticleForm extends Component {
                 </label>
               )}
       </div>
+
+      <div>
+        <label htmlFor="content">Story: </label>
+        <input
+          id="content"
+          type="text"
+          value={this.state.content}
+          onChange={this.handleContentChange}
+        />
+      </div>
+
+
 
 
 
