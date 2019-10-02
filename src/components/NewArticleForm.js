@@ -12,6 +12,7 @@ class NewArticleForm extends Component {
     this.state = {
       title: '',
       journalist: '',
+      journalistArray: [],
       date: new Date,
       summary: '',
       image: '',
@@ -42,10 +43,10 @@ class NewArticleForm extends Component {
 
   fetchJournalists() {
   fetch(`http://localhost:8080/journalists`)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data =>
       this.setState({
-        getJournalists: data._embedded.journalists
+        journalistArray: data._embedded.journalists
       })
     )
     .catch(err => console.error);
@@ -115,6 +116,7 @@ class NewArticleForm extends Component {
 
     const isEnabled = this.canBeSubmitted();
 
+
     return (
 
       <form onSubmit={this.handleSubmit}>
@@ -132,10 +134,10 @@ class NewArticleForm extends Component {
       <div>
         <label htmlFor="journalist">Author: </label>
         <select onChange={this.handleJournalistChange}>
-        <option value="journalist1">Ben</option>
-        <option value="journalist2">Eve</option>
-        <option value="journalist3">Daniela</option>
-        <option value="journalist4">Graeme</option>
+          {this.state.journalistArray.map((item) =>
+            <option value={item.id}>{item.firstName} {item.lastName}
+            </option>
+          )}
         </select>
       </div>
 
@@ -189,10 +191,6 @@ class NewArticleForm extends Component {
           onChange={this.handleContentChange}
         />
       </div>
-
-
-
-
 
       <div>
       <button disabled={!isEnabled} type="submit" >
