@@ -25,6 +25,7 @@ const NewsItem = (props) => {
          <h6>{props.article.summary}</h6>
        </div>
       </div>
+      <br/>
      <button onClick={handleClick}><Collapsible trigger="| Full story |" ><p>{props.article.content}</p>
      <div className='journalist-tag'>
        <a onClick={handleClickJournalist}>

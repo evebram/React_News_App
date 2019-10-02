@@ -3,6 +3,7 @@ import './css/TopNewsItem.css';
 import Collapsible from 'react-collapsible';
 
 const TopNewsItem = (props) => {
+  
 
   const handleClick = () => {
     props.topArticle.rating += 1;
@@ -11,6 +12,12 @@ const TopNewsItem = (props) => {
 
   const handleClickJournalist = () => {
     props.filterArrayByJournalist(props.topArticle.journalist.firstName, props.topArticle.journalist.lastName);
+  }
+
+  const createListOfCategories = () => {
+     props.categories.map((item) => {
+        return item.name
+     })
   }
 
 
