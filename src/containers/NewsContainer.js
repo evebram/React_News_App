@@ -58,8 +58,6 @@ class NewsContainer extends Component {
   }
 
   filterArrayByJournalist(journalist) {
-    console.log("filterArray launched")
-    console.log(journalist)
     const articlesByJournalist = []
     this.state.articles.filter(function(articleObject) {
       if(articleObject.journalist.lastName.includes(journalist)) {

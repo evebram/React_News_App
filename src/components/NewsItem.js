@@ -23,6 +23,7 @@ const NewsItem = (props) => {
        <img src={props.article.picUrl} alt={props.article.picUrl} />
        <div className='story-list-info'>
          <h4>{props.article.title}</h4>
+         <p>Author: {props.article.journalist.firstName} {props.article.journalist.lastName} </p>
          <h6>{props.article.summary}</h6>
        </div>
       </div>

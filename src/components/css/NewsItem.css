@@ -8,3 +8,7 @@
 .story-list button {
   width: 100%;
 }
+
+.story-list h6 {
+  font-style: italic;
+}

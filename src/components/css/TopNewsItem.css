@@ -41,3 +41,7 @@
 .top-story-info {
   margin-top: 50px;
 }
+
+.top-story h4 {
+  font-style: italic;
+}

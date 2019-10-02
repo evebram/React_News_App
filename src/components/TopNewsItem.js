@@ -22,6 +22,7 @@ const TopNewsItem = (props) => {
         <img src={props.topArticle.picUrl} alt={props.topArticle.picUrl} />
         <div className='top-story-info'>
           <h2>{props.topArticle.title}</h2>
+          <p>Author: {props.topArticle.journalist.firstName} {props.topArticle.journalist.lastName} </p>
           <h4>{props.topArticle.summary}</h4>
         </div>
       </div>
