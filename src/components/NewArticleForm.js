@@ -18,7 +18,7 @@ class NewArticleForm extends Component {
       journalistArray: [],
       date: new Date,
       summary: '',
-      image: '',
+      picUrl: '',
       content: '',
       category: {
         'Politics': false,
@@ -97,7 +97,7 @@ class NewArticleForm extends Component {
       journalist: `http://localhost:8080/journalists/${this.state.journalist}`,
       date: this.state.date,
       summary: this.state.summary,
-      image: this.state.image,
+      picUrl: this.state.image,
       content: this.state.content,
       category: this.state.category
     };
