@@ -71,7 +71,7 @@ class NewArticleForm extends Component {
     this.setState({ summary: event.target.value });
   }
   handleImageChange(event) {
-    this.setState({ image: event.target.value });
+    this.setState({ picUrl: event.target.value });
   }
   handleContentChange(event) {
     this.setState({ content: event.target.value });
@@ -97,7 +97,7 @@ class NewArticleForm extends Component {
       journalist: `http://localhost:8080/journalists/${this.state.journalist}`,
       date: this.state.date,
       summary: this.state.summary,
-      picUrl: this.state.image,
+      picUrl: this.state.picUrl,
       content: this.state.content,
       category: this.state.category
     };
@@ -113,13 +113,9 @@ class NewArticleForm extends Component {
    })
  }
 
-    canBeSubmitted() {
-    const { title, journalist, summary, image, content} = this.state;
-    return title.length > 0
-    && journalist.length > 0
-    && summary.length > 20
-    && image.length > 0
-    && content.length > 50;
+  canBeSubmitted() {
+    const { title, journalist, summary, picUrl, content} = this.state;
+    return title.length > 0 && journalist.length > 0 && summary.length > 20 && picUrl.length > 0 && content.length > 50;
   }
 
   render() {
