@@ -100,20 +100,10 @@ class NewsContainer extends Component {
     this.updateRatingLocal(id, newRating);
   }
 
-// //create new journalist
-//   handleJournalistPost(journalist) {
-//     const url = `http://localhost:8080/journalists`
-//     let newJournalist = journalist
-//     const request = new Request();
-//     request.post('/journalists', journalist).then(() => {
-//       window.location = '/journalists'
-//     })
-//   }
-
   handleArticlePost(article){
    const request = new Request();
    request.post('http://localhost:8080/articles', article).then(() => {
-     window.location = 'http://localhost:3000/'
+     window.location = 'http://localhost:3000'
    })
  }
 
