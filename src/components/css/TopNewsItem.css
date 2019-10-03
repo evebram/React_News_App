@@ -6,12 +6,11 @@
 
 .top-story img {
   float: left;
-  max-height: 300px;
+  max-width: 500px;
   width: auto;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
 }
 
 .top-story button {

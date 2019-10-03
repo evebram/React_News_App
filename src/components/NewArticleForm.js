@@ -172,7 +172,7 @@ class NewArticleForm extends Component {
       <div>
         <label htmlFor="summary">Summary: </label>
         <div>
-        <input
+        <textarea
           className="summaryField"
           id="summary"
           type="text"
@@ -213,7 +213,7 @@ class NewArticleForm extends Component {
       <div>
         <label htmlFor="content">Story: </label>
         <div>
-        <input
+        <textarea
           className="contentField"
           id="content"
           type="text"
